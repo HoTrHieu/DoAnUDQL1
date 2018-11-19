@@ -98,6 +98,12 @@
     <EmbeddedResource Include="view\frmThongKeMatHang.resx">
       <DependentUpon>frmThongKeMatHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\frmThongTinBaoCaoCongNoDaiLy.resx">
+      <DependentUpon>frmThongTinBaoCaoCongNoDaiLy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\frmThongTinBaoCaoDoanhSo.resx">
+      <DependentUpon>frmThongTinBaoCaoDoanhSo.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

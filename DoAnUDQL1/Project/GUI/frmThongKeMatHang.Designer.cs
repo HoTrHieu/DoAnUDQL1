@@ -1,4 +1,4 @@
-﻿namespace Project.view
+﻿namespace Project.GUI
 {
     partial class frmThongKeMatHang
     {

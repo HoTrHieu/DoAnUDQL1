@@ -1,6 +1,6 @@
-﻿namespace Project.view
+﻿namespace Project.GUI
 {
-    partial class frmPhieuXuatHang
+    partial class frmGiaoDienChinh
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "frmPhieuXuatHang";
+            this.Text = "frmGiaoDienChinh";
         }
 
         #endregion

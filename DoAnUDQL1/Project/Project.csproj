@@ -47,42 +47,45 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="view\frmGiaoDienChinh.cs">
+    <Compile Include="GUI\frmGiaoDienChinh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\frmGiaoDienChinh.Designer.cs">
+    <Compile Include="GUI\frmGiaoDienChinh.Designer.cs">
       <DependentUpon>frmGiaoDienChinh.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\frmPhieuThuTien.cs">
+    <Compile Include="GUI\frmPhieuThuTien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\frmPhieuThuTien.Designer.cs">
+    <Compile Include="GUI\frmPhieuThuTien.Designer.cs">
       <DependentUpon>frmPhieuThuTien.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\frmPhieuXuatHang.cs">
+    <Compile Include="GUI\frmPhieuXuatHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\frmPhieuXuatHang.Designer.cs">
+    <Compile Include="GUI\frmPhieuXuatHang.Designer.cs">
       <DependentUpon>frmPhieuXuatHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\frmThongKeMatHang.cs">
+    <Compile Include="GUI\frmThongKeMatHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\frmThongKeMatHang.Designer.cs">
+    <Compile Include="GUI\frmThongKeMatHang.Designer.cs">
       <DependentUpon>frmThongKeMatHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\frmThongTinBaoCaoCongNoDaiLy.cs">
+    <Compile Include="GUI\frmThongTinBaoCaoCongNoDaiLy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\frmThongTinBaoCaoCongNoDaiLy.Designer.cs">
+    <Compile Include="GUI\frmThongTinBaoCaoCongNoDaiLy.Designer.cs">
       <DependentUpon>frmThongTinBaoCaoCongNoDaiLy.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\frmThongTinBaoCaoDoanhSo.cs">
+    <Compile Include="GUI\frmThongTinBaoCaoDoanhSo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\frmThongTinBaoCaoDoanhSo.Designer.cs">
+    <Compile Include="GUI\frmThongTinBaoCaoDoanhSo.Designer.cs">
       <DependentUpon>frmThongTinBaoCaoDoanhSo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="GUI\frmPhieuXuatHang.resx">
+      <DependentUpon>frmPhieuXuatHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -92,16 +95,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="view\frmPhieuThuTien.resx">
+    <EmbeddedResource Include="GUI\frmPhieuThuTien.resx">
       <DependentUpon>frmPhieuThuTien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\frmThongKeMatHang.resx">
+    <EmbeddedResource Include="GUI\frmThongKeMatHang.resx">
       <DependentUpon>frmThongKeMatHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\frmThongTinBaoCaoCongNoDaiLy.resx">
+    <EmbeddedResource Include="GUI\frmThongTinBaoCaoCongNoDaiLy.resx">
       <DependentUpon>frmThongTinBaoCaoCongNoDaiLy.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\frmThongTinBaoCaoDoanhSo.resx">
+    <EmbeddedResource Include="GUI\frmThongTinBaoCaoDoanhSo.resx">
       <DependentUpon>frmThongTinBaoCaoDoanhSo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -116,6 +119,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BUS\" />
+    <Folder Include="DAO\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

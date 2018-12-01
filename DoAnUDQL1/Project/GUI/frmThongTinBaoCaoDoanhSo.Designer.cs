@@ -1,6 +1,6 @@
-﻿namespace Project.view
+﻿namespace Project.GUI
 {
-    partial class frmBaoCaoDoanhSo
+    partial class frmThongTinBaoCaoDoanhSo
     {
         /// <summary>
         /// Required designer variable.
@@ -32,12 +32,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -85,16 +85,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(565, 183);
             this.dataGridView1.TabIndex = 4;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 52);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(577, 208);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thống Kê Tài Chính";
-            // 
             // Column1
             // 
             this.Column1.HeaderText = "STT";
@@ -120,7 +110,17 @@
             this.Column5.HeaderText = "Tỷ Lệ";
             this.Column5.Name = "Column5";
             // 
-            // frmBaoCaoDoanhSo
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Location = new System.Drawing.Point(12, 52);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(577, 208);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Thống Kê Tài Chính";
+            // 
+            // frmThongTinBaoCaoDoanhSo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -129,8 +129,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "frmBaoCaoDoanhSo";
-            this.Text = "frmBaoCaoDoanhSo";
+            this.Name = "frmThongTinBaoCaoDoanhSo";
+            this.Text = "frmThongTinBaoCaoDoanhSo";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Project.view
+namespace Project.GUI
 {
     public partial class frmPhieuThuTien : Form
     {

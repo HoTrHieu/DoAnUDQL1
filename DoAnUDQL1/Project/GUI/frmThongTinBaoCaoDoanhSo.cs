@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Project.view
+namespace Project.GUI
 {
-    public partial class frmThongKeMatHang : Form
+    public partial class frmThongTinBaoCaoDoanhSo : Form
     {
-        public frmThongKeMatHang()
+        public frmThongTinBaoCaoDoanhSo()
         {
             InitializeComponent();
         }

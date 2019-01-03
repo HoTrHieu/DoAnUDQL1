@@ -30,3 +30,7 @@ H:\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.exe
 H:\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.pdb
 H:\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.frmDanhSachDaiLy.resources
 H:\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmCapNhatThamSo.resources
+C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.frmDanhSachDaiLy.resources
+C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmCapNhatThamSo.resources
+C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmGiaoDienChinh.resources
+C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmTiepNhanDaiLy.resources

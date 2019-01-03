@@ -17,6 +17,10 @@ namespace Project.GUI
         public frmTiepNhanDaiLy()
         {
             InitializeComponent();
+            QuanBUS a = new QuanBUS();
+            QUAN x = a.GetByID("Q1");
+            MessageBox.Show(x.MaQuan);
+
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

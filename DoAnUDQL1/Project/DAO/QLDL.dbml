@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuanLyDaiLy" Class="QLDLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-KALP039;Initial Catalog=QuanLyDaiLy;Integrated Security=True" SettingsObjectName="Project.Properties.Settings" SettingsPropertyName="QuanLyDaiLyConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.BAOCAOCONGNO" Member="BAOCAOCONGNOs">
+    <Type Name="BAOCAOCONGNO">
+      <Column Name="MaBaoCaoCongNo" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Thang" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NoDau" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PhatSinh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NoCuoi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaDaiLy" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Association Name="DAILY_BAOCAOCONGNO" Member="DAILY" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="DAILY" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BAOCAODOANHSO" Member="BAOCAODOANHSOs">
+    <Type Name="BAOCAODOANHSO">
+      <Column Name="MaBaoCaoDoanhSo" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Thang" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoPhieuXuat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TongTriGia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TyLe" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaDaiLy" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Association Name="DAILY_BAOCAODOANHSO" Member="DAILY" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="DAILY" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DAILY" Member="DAILies">
+    <Type Name="DAILY">
+      <Column Name="MaDaiLy" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenDaiLy" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DienThoai" Type="System.String" DbType="Char(15)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(231)" CanBeNull="true" />
+      <Column Name="NgayTiepNhan" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="Char(30)" CanBeNull="true" />
+      <Column Name="TienNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaLoaiDaiLy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaQuan" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Association Name="DAILY_BAOCAOCONGNO" Member="BAOCAOCONGNOs" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="BAOCAOCONGNO" />
+      <Association Name="DAILY_BAOCAODOANHSO" Member="BAOCAODOANHSOs" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="BAOCAODOANHSO" />
+      <Association Name="DAILY_PHIEUTHUTIEN" Member="PHIEUTHUTIENs" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="PHIEUTHUTIEN" />
+      <Association Name="DAILY_PHIEUXUATHANG" Member="PHIEUXUATHANGs" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="PHIEUXUATHANG" />
+      <Association Name="LOAIDAILY_DAILY" Member="LOAIDAILY" ThisKey="MaLoaiDaiLy" OtherKey="MaLoaiDaiLy" Type="LOAIDAILY" IsForeignKey="true" />
+      <Association Name="QUAN_DAILY" Member="QUAN" ThisKey="MaQuan" OtherKey="MaQuan" Type="QUAN" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DONVITINH" Member="DONVITINHs">
+    <Type Name="DONVITINH">
+      <Column Name="MaDonViTinh" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenDonViTinh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="DONVITINH_PHIEUXUAT_MATHANG" Member="PHIEUXUAT_MATHANGs" ThisKey="MaDonViTinh" OtherKey="MaDonViTinh" Type="PHIEUXUAT_MATHANG" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LOAIDAILY" Member="LOAIDAILies">
+    <Type Name="LOAIDAILY">
+      <Column Name="MaLoaiDaiLy" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenLoaiDaiLy" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TienNoToiDa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="LOAIDAILY_DAILY" Member="DAILies" ThisKey="MaLoaiDaiLy" OtherKey="MaLoaiDaiLy" Type="DAILY" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MATHANG" Member="MATHANGs">
+    <Type Name="MATHANG">
+      <Column Name="MaMatHang" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenMatHang" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DonGia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoLuongTon" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="MATHANG_PHIEUXUAT_MATHANG" Member="PHIEUXUAT_MATHANGs" ThisKey="MaMatHang" OtherKey="MaMatHang" Type="PHIEUXUAT_MATHANG" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PHIEUTHUTIEN" Member="PHIEUTHUTIENs">
+    <Type Name="PHIEUTHUTIEN">
+      <Column Name="MaPhieuThu" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NgayThuTien" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SoTienThu" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaDaiLy" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Association Name="DAILY_PHIEUTHUTIEN" Member="DAILY" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="DAILY" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PHIEUXUAT_MATHANG" Member="PHIEUXUAT_MATHANGs">
+    <Type Name="PHIEUXUAT_MATHANG">
+      <Column Name="MaPhieuXuat" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaMatHang" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ThanhTien" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaDonViTinh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="DONVITINH_PHIEUXUAT_MATHANG" Member="DONVITINH" ThisKey="MaDonViTinh" OtherKey="MaDonViTinh" Type="DONVITINH" IsForeignKey="true" />
+      <Association Name="MATHANG_PHIEUXUAT_MATHANG" Member="MATHANG" ThisKey="MaMatHang" OtherKey="MaMatHang" Type="MATHANG" IsForeignKey="true" />
+      <Association Name="PHIEUXUATHANG_PHIEUXUAT_MATHANG" Member="PHIEUXUATHANG" ThisKey="MaPhieuXuat" OtherKey="MaPhieuXuat" Type="PHIEUXUATHANG" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PHIEUXUATHANG" Member="PHIEUXUATHANGs">
+    <Type Name="PHIEUXUATHANG">
+      <Column Name="MaPhieuXuat" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NgayLapPhieu" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TongTien" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaDaiLy" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Association Name="PHIEUXUATHANG_PHIEUXUAT_MATHANG" Member="PHIEUXUAT_MATHANGs" ThisKey="MaPhieuXuat" OtherKey="MaPhieuXuat" Type="PHIEUXUAT_MATHANG" />
+      <Association Name="DAILY_PHIEUXUATHANG" Member="DAILY" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="DAILY" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QUAN" Member="QUANs">
+    <Type Name="QUAN">
+      <Column Name="MaQuan" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenQuan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="QUAN_DAILY" Member="DAILies" ThisKey="MaQuan" OtherKey="MaQuan" Type="DAILY" />
+    </Type>
+  </Table>
+  <Table Name="dbo.THAMSO" Member="THAMSOs">
+    <Type Name="THAMSO">
+      <Column Name="SoDaiLyToiDaQuan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoMatHang" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoDonViTinh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

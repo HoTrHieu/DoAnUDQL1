@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,6 +46,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\BaoCaoCongNoBUS.cs" />
+    <Compile Include="BUS\BaoCaoDoanhSoBUS.cs" />
+    <Compile Include="BUS\DaiLyBUS.cs" />
+    <Compile Include="BUS\DonViTinhBUS.cs" />
+    <Compile Include="BUS\LoaiDaiLyBUS.cs" />
+    <Compile Include="BUS\MatHangBUS.cs" />
+    <Compile Include="BUS\PhieuThuTienBUS.cs" />
+    <Compile Include="BUS\PhieuXuatHangBUS.cs" />
+    <Compile Include="BUS\PhieuXuat_MatHangBUS.cs" />
+    <Compile Include="BUS\QuanBUS.cs" />
+    <Compile Include="DAO\BaoCaoCongNoDAO.cs" />
+    <Compile Include="DAO\BaoCaoDoanhSoDAO.cs" />
+    <Compile Include="DAO\DaiLyDAO.cs" />
+    <Compile Include="DAO\DonViTinhDAO.cs" />
+    <Compile Include="DAO\LoaiDaiLyDAO.cs" />
+    <Compile Include="DAO\MatHangDAO.cs" />
+    <Compile Include="DAO\PhieuThuTienDAO.cs" />
+    <Compile Include="DAO\PhieuXuatHangDAO.cs" />
+    <Compile Include="DAO\PhieuXuat_MatHangDAO.cs" />
+    <Compile Include="DAO\QLDL.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLDL.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\QuanDAO.cs" />
     <Compile Include="frmDanhSachDaiLy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +164,14 @@
     <EmbeddedResource Include="GUI\frmThongTinBaoCaoDoanhSo.resx">
       <DependentUpon>frmThongTinBaoCaoDoanhSo.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DAO\QLDL.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>QLDL.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DAO\QLDL.dbml.layout">
+      <DependentUpon>QLDL.dbml</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -151,10 +185,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BUS\" />
-    <Folder Include="DAO\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="IMG\grass.jpg" />
   </ItemGroup>
@@ -166,6 +197,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="IMG\Circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

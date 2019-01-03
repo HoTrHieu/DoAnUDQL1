@@ -12,3 +12,21 @@ C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\DoAnUDQL1\DoAnUDQL1\Proj
 C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmThongTinBaoCaoCongNoDaiLy.resources
 C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmThongTinBaoCaoDoanhSo.resources
 C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmPhieuXuatHang.resources
+H:\DoAnUDQL1\DoAnUDQL1\Project\bin\Debug\Project.exe.config
+H:\DoAnUDQL1\DoAnUDQL1\Project\bin\Debug\Project.exe
+H:\DoAnUDQL1\DoAnUDQL1\Project\bin\Debug\Project.pdb
+H:\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.csprojAssemblyReference.cache
+H:\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmGiaoDienChinh.resources
+H:\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmPhieuXuatHang.resources
+H:\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmTiepNhanDaiLy.resources
+H:\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.Properties.Resources.resources
+H:\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmPhieuThuTien.resources
+H:\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmThongKeMatHang.resources
+H:\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmThongTinBaoCaoCongNoDaiLy.resources
+H:\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmThongTinBaoCaoDoanhSo.resources
+H:\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.csproj.GenerateResource.cache
+H:\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.csproj.CoreCompileInputs.cache
+H:\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.exe
+H:\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.pdb
+H:\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.frmDanhSachDaiLy.resources
+H:\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmCapNhatThamSo.resources

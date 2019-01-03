@@ -45,6 +45,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmDanhSachDaiLy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDanhSachDaiLy.Designer.cs">
+      <DependentUpon>frmDanhSachDaiLy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmCapNhatThamSo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmCapNhatThamSo.Designer.cs">
+      <DependentUpon>frmCapNhatThamSo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmTiepNhanDaiLy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmTiepNhanDaiLy.Designer.cs">
+      <DependentUpon>frmTiepNhanDaiLy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GUI\frmGiaoDienChinh.cs">
@@ -83,8 +101,20 @@
     <Compile Include="GUI\frmThongTinBaoCaoDoanhSo.Designer.cs">
       <DependentUpon>frmThongTinBaoCaoDoanhSo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmDanhSachDaiLy.resx">
+      <DependentUpon>frmDanhSachDaiLy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmCapNhatThamSo.resx">
+      <DependentUpon>frmCapNhatThamSo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmGiaoDienChinh.resx">
+      <DependentUpon>frmGiaoDienChinh.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmPhieuXuatHang.resx">
       <DependentUpon>frmPhieuXuatHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmTiepNhanDaiLy.resx">
+      <DependentUpon>frmTiepNhanDaiLy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -94,6 +124,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="GUI\frmPhieuThuTien.resx">
       <DependentUpon>frmPhieuThuTien.cs</DependentUpon>
@@ -123,6 +154,18 @@
   <ItemGroup>
     <Folder Include="BUS\" />
     <Folder Include="DAO\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\grass.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\Tuyen_ctv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IMG\Circle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

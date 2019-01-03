@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Project.GUI
 {
-    public partial class frmPhieuXuatHang : Form
+    public partial class frmTiepNhanDaiLy : Form
     {
-        public frmPhieuXuatHang()
+        public frmTiepNhanDaiLy()
         {
             InitializeComponent();
         }

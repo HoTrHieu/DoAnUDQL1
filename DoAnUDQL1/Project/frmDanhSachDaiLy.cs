@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Project.GUI
+namespace Project
 {
-    public partial class frmPhieuXuatHang : Form
+    public partial class frmDanhSachDaiLy : Form
     {
-        public frmPhieuXuatHang()
+        public frmDanhSachDaiLy()
         {
             InitializeComponent();
-        }
-
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

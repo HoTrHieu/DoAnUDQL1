@@ -33,5 +33,24 @@ namespace Project.DAO
             }
             return temp;
         }
+
+        //update by ID
+        public bool Update(string MaQ,QUAN q)
+        {
+            using (QLDLDataContext db = new QLDLDataContext())
+            {
+                QUAN temp = db.QUANs.Where(p => p.MaQuan == MaQ).SingleOrDefault();
+                temp.TenQuan = q.TenQuan;
+                try
+                {
+                    db.SubmitChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
     }
 }

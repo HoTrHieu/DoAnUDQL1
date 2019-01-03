@@ -17,9 +17,9 @@ namespace Project.GUI
         public frmTiepNhanDaiLy()
         {
             InitializeComponent();
-            QuanBUS a = new QuanBUS();
-            QUAN x = a.GetByID("Q1");
-            MessageBox.Show(x.MaQuan);
+            BaoCaoCongNoBUS x = new BaoCaoCongNoBUS();
+            string ma = x.CreatCode();
+            MessageBox.Show(ma);
 
         }
 

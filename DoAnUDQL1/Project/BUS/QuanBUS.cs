@@ -24,9 +24,17 @@ namespace Project.BUS
         }
         public QuanBUS() { }
         //Note: quận k cần insert
+
+        //GetByID
         public QUAN GetByID(string MaQ)
         {
             return QuanDAO.Instance.GetByID(MaQ);
         }
+        //Update by ID
+        public bool Update(string MaQ,QUAN q)
+        {
+            return QuanDAO.Instance.Update(MaQ, q);
+        }
+
     }
 }

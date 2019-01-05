@@ -32,15 +32,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvDoanhSo = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmbThang = new System.Windows.Forms.ComboBox();
             this.btnInDoanhSo = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
+            this.btnShowAll = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoanhSo)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -72,42 +68,11 @@
             this.dgvDoanhSo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDoanhSo.BackgroundColor = System.Drawing.Color.Teal;
             this.dgvDoanhSo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDoanhSo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5});
             this.dgvDoanhSo.Location = new System.Drawing.Point(6, 19);
             this.dgvDoanhSo.Name = "dgvDoanhSo";
             this.dgvDoanhSo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDoanhSo.Size = new System.Drawing.Size(565, 221);
             this.dgvDoanhSo.TabIndex = 4;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "STT";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Đại Lý";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Số Phiếu Xuất";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Tổng Trị Giá";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Tỷ Lệ";
-            this.Column5.Name = "Column5";
             // 
             // groupBox1
             // 
@@ -128,6 +93,7 @@
             this.cmbThang.Name = "cmbThang";
             this.cmbThang.Size = new System.Drawing.Size(50, 21);
             this.cmbThang.TabIndex = 11;
+            this.cmbThang.SelectedIndexChanged += new System.EventHandler(this.cmbThang_SelectedIndexChanged_1);
             // 
             // btnInDoanhSo
             // 
@@ -138,8 +104,9 @@
             this.btnInDoanhSo.Name = "btnInDoanhSo";
             this.btnInDoanhSo.Size = new System.Drawing.Size(124, 31);
             this.btnInDoanhSo.TabIndex = 15;
-            this.btnInDoanhSo.Text = "In báo cáo doanh số";
+            this.btnInDoanhSo.Text = "Xuất Excel";
             this.btnInDoanhSo.UseVisualStyleBackColor = false;
+            this.btnInDoanhSo.Click += new System.EventHandler(this.btnInDoanhSo_Click_1);
             // 
             // btnThoat
             // 
@@ -154,12 +121,26 @@
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
+            // btnShowAll
+            // 
+            this.btnShowAll.BackColor = System.Drawing.Color.Azure;
+            this.btnShowAll.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnShowAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShowAll.Location = new System.Drawing.Point(200, 336);
+            this.btnShowAll.Name = "btnShowAll";
+            this.btnShowAll.Size = new System.Drawing.Size(124, 31);
+            this.btnShowAll.TabIndex = 17;
+            this.btnShowAll.Text = "Hiển thị tất cả";
+            this.btnShowAll.UseVisualStyleBackColor = false;
+            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click_1);
+            // 
             // frmThongTinBaoCaoDoanhSo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkTurquoise;
             this.ClientSize = new System.Drawing.Size(601, 379);
+            this.Controls.Add(this.btnShowAll);
             this.Controls.Add(this.btnInDoanhSo);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.cmbThang);
@@ -171,6 +152,7 @@
             this.Name = "frmThongTinBaoCaoDoanhSo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Báo Cáo Doanh Số";
+            this.Load += new System.EventHandler(this.frmThongTinBaoCaoDoanhSo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoanhSo)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -183,13 +165,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvDoanhSo;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.ComboBox cmbThang;
         private System.Windows.Forms.Button btnInDoanhSo;
         private System.Windows.Forms.Button btnThoat;
+        private System.Windows.Forms.Button btnShowAll;
     }
 }

@@ -31,15 +31,15 @@ namespace Project.DAO
             }
 
         }
-        public DONVITINH GetByID(string MaDL)
-        {
-            DONVITINH temp;
-            using (QLDLDataContext db = new QLDLDataContext())
-            {
+        //public DONVITINH GetByID(string MaDL)
+        //{
+        //    DONVITINH temp;
+        //    using (QLDLDataContext db = new QLDLDataContext())
+        //    {
                 
-            }
-            return temp;
-        }
+        //    }
+        //    return temp;
+        //}
 
     }
 }

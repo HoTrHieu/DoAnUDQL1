@@ -64,6 +64,7 @@ create table QUAN
 go
 create table THAMSO 
 (
+	ID int NOT NULL Primary key,
 	SoDaiLyToiDaQuan int,
 	SoMatHang int,
 	SoDonViTinh int
@@ -302,3 +303,5 @@ INSERT [dbo].[DOANHSO_DAILY] ([MaBaoCaoDoanhSo], [MaDaiLy], [SoPhieuXuat], [Tong
 INSERT [dbo].[DOANHSO_DAILY] ([MaBaoCaoDoanhSo], [MaDaiLy], [SoPhieuXuat], [TongTriGia], [TyLe]) VALUES (N'BCDS8     ', N'DL5       ',6,50500,9)
 INSERT [dbo].[DOANHSO_DAILY] ([MaBaoCaoDoanhSo], [MaDaiLy], [SoPhieuXuat], [TongTriGia], [TyLe]) VALUES (N'BCDS8     ', N'DL3       ',2,10000,1)
 INSERT [dbo].[DOANHSO_DAILY] ([MaBaoCaoDoanhSo], [MaDaiLy], [SoPhieuXuat], [TongTriGia], [TyLe]) VALUES (N'BCDS4     ', N'DL4       ',10,52000,14)
+
+INSERT [dbo].[THAMSO] ([ID], [SoDaiLyToiDaQuan], [SoMatHang], [SoDonViTinh]) VALUES (1, 4, 5, 3)

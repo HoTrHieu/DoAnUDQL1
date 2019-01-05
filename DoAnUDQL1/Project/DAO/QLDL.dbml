@@ -9,6 +9,7 @@
   </Table>
   <Table Name="dbo.THAMSO" Member="THAMSOs">
     <Type Name="THAMSO">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="SoDaiLyToiDaQuan" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="SoMatHang" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="SoDonViTinh" Type="System.Int32" DbType="Int" CanBeNull="true" />

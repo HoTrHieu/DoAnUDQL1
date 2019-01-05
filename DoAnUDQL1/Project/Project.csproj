@@ -62,6 +62,7 @@
     <Compile Include="BUS\PhieuXuatHangBUS.cs" />
     <Compile Include="BUS\PhieuXuat_MatHangBUS.cs" />
     <Compile Include="BUS\QuanBUS.cs" />
+    <Compile Include="BUS\ThamSoBUS.cs" />
     <Compile Include="DAO\BaoCaoCongNoDAO.cs" />
     <Compile Include="DAO\BaoCaoDoanhSoDAO.cs" />
     <Compile Include="DAO\CongNo_DaiLyDAO.cs" />
@@ -79,6 +80,7 @@
       <DependentUpon>QLDL.dbml</DependentUpon>
     </Compile>
     <Compile Include="DAO\QuanDAO.cs" />
+    <Compile Include="DAO\ThamSoDAO.cs" />
     <Compile Include="GUI\frmDanhSachDaiLy.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -33,6 +33,9 @@ namespace Project.DAO
     partial void InsertBAOCAOCONGNO(BAOCAOCONGNO instance);
     partial void UpdateBAOCAOCONGNO(BAOCAOCONGNO instance);
     partial void DeleteBAOCAOCONGNO(BAOCAOCONGNO instance);
+    partial void InsertTHAMSO(THAMSO instance);
+    partial void UpdateTHAMSO(THAMSO instance);
+    partial void DeleteTHAMSO(THAMSO instance);
     partial void InsertBAOCAODOANHSO(BAOCAODOANHSO instance);
     partial void UpdateBAOCAODOANHSO(BAOCAODOANHSO instance);
     partial void DeleteBAOCAODOANHSO(BAOCAODOANHSO instance);
@@ -318,8 +321,12 @@ namespace Project.DAO
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.THAMSO")]
-	public partial class THAMSO
+	public partial class THAMSO : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
 		
 		private System.Nullable<int> _SoDaiLyToiDaQuan;
 		
@@ -327,8 +334,43 @@ namespace Project.DAO
 		
 		private System.Nullable<int> _SoDonViTinh;
 		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnSoDaiLyToiDaQuanChanging(System.Nullable<int> value);
+    partial void OnSoDaiLyToiDaQuanChanged();
+    partial void OnSoMatHangChanging(System.Nullable<int> value);
+    partial void OnSoMatHangChanged();
+    partial void OnSoDonViTinhChanging(System.Nullable<int> value);
+    partial void OnSoDonViTinhChanged();
+    #endregion
+		
 		public THAMSO()
 		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoDaiLyToiDaQuan", DbType="Int")]
@@ -342,7 +384,11 @@ namespace Project.DAO
 			{
 				if ((this._SoDaiLyToiDaQuan != value))
 				{
+					this.OnSoDaiLyToiDaQuanChanging(value);
+					this.SendPropertyChanging();
 					this._SoDaiLyToiDaQuan = value;
+					this.SendPropertyChanged("SoDaiLyToiDaQuan");
+					this.OnSoDaiLyToiDaQuanChanged();
 				}
 			}
 		}
@@ -358,7 +404,11 @@ namespace Project.DAO
 			{
 				if ((this._SoMatHang != value))
 				{
+					this.OnSoMatHangChanging(value);
+					this.SendPropertyChanging();
 					this._SoMatHang = value;
+					this.SendPropertyChanged("SoMatHang");
+					this.OnSoMatHangChanged();
 				}
 			}
 		}
@@ -374,8 +424,32 @@ namespace Project.DAO
 			{
 				if ((this._SoDonViTinh != value))
 				{
+					this.OnSoDonViTinhChanging(value);
+					this.SendPropertyChanging();
 					this._SoDonViTinh = value;
+					this.SendPropertyChanged("SoDonViTinh");
+					this.OnSoDonViTinhChanged();
 				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

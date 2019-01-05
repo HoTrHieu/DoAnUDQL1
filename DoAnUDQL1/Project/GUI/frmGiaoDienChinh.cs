@@ -64,5 +64,10 @@ namespace Project.GUI
             frmDanhSachDaiLy dsdl = new frmDanhSachDaiLy();
             dsdl.ShowDialog();
         }
+
+        private void frmGiaoDienChinh_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

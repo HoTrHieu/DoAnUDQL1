@@ -44,5 +44,33 @@ namespace Project
         {
             this.Close();
         }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            int rowindex = dgvDSDL.CurrentRow.Index;
+
+            string maDL = dgvDSDL.Rows[rowindex].Cells[0].Value.ToString();
+
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xoá không.", "Question???", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    if (DaiLyBUS.Instance.Delete(maDL))
+                    {
+                        MessageBox.Show("Xoá đại lý thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xoá đại lý không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
     }
 }

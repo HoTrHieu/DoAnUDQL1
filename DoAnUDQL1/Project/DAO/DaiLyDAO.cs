@@ -131,5 +131,45 @@ namespace Project.DAO
                 }
             }
         }
+
+        public bool Delete(string maDL)
+        {
+            using (QLDLDataContext db = new QLDLDataContext())
+            {
+                var query = db.DAILies.Single(dl => dl.MaDaiLy == maDL);
+                try
+                {
+                    db.DAILies.DeleteOnSubmit(query);
+                    db.SubmitChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
+
+        public int demSoDaiLyTrongQuan(string maQuan)
+        {
+            using (QLDLDataContext db = new QLDLDataContext())
+            {
+                //var soLuong = from dl in db.DAILies
+                //              where dl.MaQuan == maQuan
+                //              group dl by dl.MaQuan into grouping
+                //              select new
+                //              {
+                //                  count = grouping.Count()
+                //            };
+                //foreach (var temp in soLuong)
+                //{
+                //    result = temp.count;
+                //}
+
+                int count = (from x in db.DAILies where x.MaQuan == maQuan select x).Count();  // count: 2
+                return count;
+            }
+            
+        }
     }
 }

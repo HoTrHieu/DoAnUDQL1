@@ -65,5 +65,15 @@ namespace Project.BUS
         {
             return DaiLyDAO.Instance.Update(MaDL, dl);
         }
+
+        public int demSoDaiLyTrongQuan(string maQuan)
+        {
+            return DaiLyDAO.Instance.demSoDaiLyTrongQuan(maQuan);
+        }
+
+        public bool Delete(string maDL)
+        {
+            return DaiLyDAO.Instance.Delete(maDL);
+        }
     }
 }

@@ -55,18 +55,37 @@ namespace Project.GUI
             int maLoaiDaiLy = (int)cmbLoaiDaiLy.SelectedValue;
             string maQuan = cmbQuan.SelectedValue.ToString();
 
+            int soDaiLyDaCo = DaiLyBUS.Instance.demSoDaiLyTrongQuan(maQuan);
+            int soDaiLyChoPhep = int.Parse(ThamSoBUS.Instance.GetAll().SoDaiLyToiDaQuan.ToString());
+
+            if (tenDL != "" || dienThoai != "" || diaChi != "")
+            {
+                if(soDaiLyDaCo >= soDaiLyChoPhep)
+                {
+                    MessageBox.Show("Quận " + maQuan.TrimEnd() + " đã đủ " + soDaiLyChoPhep + " đại lý.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    if (DaiLyBUS.Instance.Insert(tenDL, dienThoai, diaChi, DateTime.Now, email, tienNo, maLoaiDaiLy, maQuan))
+                    {
+                        MessageBox.Show("Tiếp nhận đại lý thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Tiếp nhận đại lý không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
             //MessageBox.Show("MaDL : " + maDL + "\nTen DL : " + tenDL + "\nDien thoai : " + dienThoai +
             //    "\nDia chi : " + diaChi + "\nNgay tiep nhan : " + ngayTiepNhan + "\nEmail : " + email +
             //    "\nTien no : " + tienNo + "\nMa Loai Dai Ly : " + maLoaiDaiLy + "\nMa Quan : " + maQuan);
 
-            if (DaiLyBUS.Instance.Insert(tenDL, dienThoai, diaChi, DateTime.Now, email, tienNo, maLoaiDaiLy, maQuan))
-            {
-                MessageBox.Show("Tiếp nhận đại lý thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Tiếp nhận đại lý không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+
         }
     }
 }

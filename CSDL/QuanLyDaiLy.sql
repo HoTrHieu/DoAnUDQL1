@@ -25,23 +25,35 @@ go
 create table BAOCAODOANHSO 
 (
 	MaBaoCaoDoanhSo char(10) NOT NULL PRIMARY KEY,
-	Thang int,
+	Thang int	
+);
+go
+create table DOANHSO_DAILY 
+(
+	MaBaoCaoDoanhSo char(10), 
+	MaDaiLy char(10),
 	SoPhieuXuat int,
 	TongTriGia int,
 	TyLe int,
-	--khóa ngoại
-	MaDaiLy char(10)
+	
+	PRIMARY KEY(MaBaoCaoDoanhSo,MaDaiLy)
 );
 go
 create table BAOCAOCONGNO
 (
 	MaBaoCaoCongNo char(10) NOT NULL PRIMARY KEY,
-	Thang int,
+	Thang int
+);
+go
+create table CONGNO_DAILY
+(
+	MaBaoCaoCongNo char(10),
+	MaDaiLy char(10),
 	NoDau int,
 	PhatSinh int,
 	NoCuoi int,
 	--khóa ngoại
-	MaDaiLy char(10)
+	PRIMARY KEY(MaBaoCaoCongNo,MaDaiLy)
 );
 go
 create table QUAN
@@ -121,15 +133,25 @@ ALTER TABLE [dbo].[DAILY]  WITH CHECK
 ADD  CONSTRAINT [FK_DAILY_QUAN] FOREIGN KEY([MaQuan])
 REFERENCES [dbo].[QUAN] ([MaQuan])
 GO
---k3 --BAOCAODOANHSO
-ALTER TABLE [dbo].[BAOCAODOANHSO]  WITH CHECK 
-ADD  CONSTRAINT [FK_BAOCAODOANHSO_DAILY] FOREIGN KEY([MaDaiLy])
+--k3 --DOANHSO_DAILY DAILY
+ALTER TABLE [dbo].[DOANHSO_DAILY]  WITH CHECK 
+ADD  CONSTRAINT [FK_DOANHSO_DAILY_DAILY] FOREIGN KEY([MaDaiLy])
 REFERENCES [dbo].[DAILY] ([MaDaiLy])
 GO
---k4 --BAOCAOCONGNO
-ALTER TABLE [dbo].[BAOCAOCONGNO]  WITH CHECK 
-ADD  CONSTRAINT [FK_BAOCAOCONGNO_DAILY] FOREIGN KEY([MaDaiLy])
+--k33 --DOANHSO_DAILY BAOCAODOANHSO
+ALTER TABLE [dbo].[DOANHSO_DAILY]  WITH CHECK 
+ADD  CONSTRAINT [FK_DOANHSO_DAILY_DOANHSO] FOREIGN KEY([MaBaoCaoDoanhSo])
+REFERENCES [dbo].[BAOCAODOANHSO] ([MaBaoCaoDoanhSo])
+GO
+--k4 --CONGNO_DAILY DAILY
+ALTER TABLE [dbo].[CONGNO_DAILY]  WITH CHECK 
+ADD  CONSTRAINT [FK_CONGNO_DAILY_DAILY] FOREIGN KEY([MaDaiLy])
 REFERENCES [dbo].[DAILY] ([MaDaiLy])
+GO
+--k44 --CONGNO_DAILY BAOCAOCONGNO
+ALTER TABLE [dbo].[CONGNO_DAILY]  WITH CHECK 
+ADD  CONSTRAINT [FK_CONGNO_DAILY_CONGNO] FOREIGN KEY([MaBaoCaoCongNo])
+REFERENCES [dbo].[BAOCAOCONGNO] ([MaBaoCaoCongNo])
 GO
 -----------------------
 --k5 --PHIEUXUAT_MATHANG
@@ -199,19 +221,19 @@ INSERT [dbo].[DAILY] ([MaDaiLy], [TenDaiLy], [DienThoai], [DiaChi], [NgayTiepNha
 INSERT [dbo].[DAILY] ([MaDaiLy], [TenDaiLy], [DienThoai], [DiaChi], [NgayTiepNhan], [Email], [TienNo], [MaLoaiDaiLy], [MaQuan]) VALUES (N'DL9       ', N'Virgo', N'04493939       ', N'Nguyễn Huệ', CAST(N'2008-12-21T00:00:00.000' AS DateTime), N'virgo@gmail.com               ', 50, 2, N'Q1        ')
 
 --
-INSERT [dbo].[BAOCAOCONGNO] ([MaBaoCaoCongNo], [Thang], [NoDau], [PhatSinh], [NoCuoi], [MaDaiLy]) VALUES (N'BCCN1     ', 1, 20, 10, 30, N'DL2       ')
-INSERT [dbo].[BAOCAOCONGNO] ([MaBaoCaoCongNo], [Thang], [NoDau], [PhatSinh], [NoCuoi], [MaDaiLy]) VALUES (N'BCCN2     ', 2, 10, 10, 20, N'DL2       ')
-INSERT [dbo].[BAOCAOCONGNO] ([MaBaoCaoCongNo], [Thang], [NoDau], [PhatSinh], [NoCuoi], [MaDaiLy]) VALUES (N'BCCN3     ', 3, 0, 40, 40, N'DL3       ')
-INSERT [dbo].[BAOCAOCONGNO] ([MaBaoCaoCongNo], [Thang], [NoDau], [PhatSinh], [NoCuoi], [MaDaiLy]) VALUES (N'BCCN4     ', 4, 10, 10, 20, N'DL4       ')
+INSERT [dbo].[BAOCAOCONGNO] ([MaBaoCaoCongNo], [Thang]) VALUES (N'BCCN1     ', 1)
+INSERT [dbo].[BAOCAOCONGNO] ([MaBaoCaoCongNo], [Thang]) VALUES (N'BCCN2     ', 2)
+INSERT [dbo].[BAOCAOCONGNO] ([MaBaoCaoCongNo], [Thang]) VALUES (N'BCCN3     ', 3)
+INSERT [dbo].[BAOCAOCONGNO] ([MaBaoCaoCongNo], [Thang]) VALUES (N'BCCN4     ', 4)
 --
-INSERT [dbo].[BAOCAODOANHSO] ([MaBaoCaoDoanhSo], [Thang], [SoPhieuXuat], [TongTriGia], [TyLe], [MaDaiLy]) VALUES (N'BCDS1     ', 1, 1, 10000000, 10, N'DL1       ')
-INSERT [dbo].[BAOCAODOANHSO] ([MaBaoCaoDoanhSo], [Thang], [SoPhieuXuat], [TongTriGia], [TyLe], [MaDaiLy]) VALUES (N'BCDS2     ', 3, 1, 20000000, 10, N'DL1       ')
-INSERT [dbo].[BAOCAODOANHSO] ([MaBaoCaoDoanhSo], [Thang], [SoPhieuXuat], [TongTriGia], [TyLe], [MaDaiLy]) VALUES (N'BCDS3     ', 4, 1, 30000000, 10, N'DL1       ')
-INSERT [dbo].[BAOCAODOANHSO] ([MaBaoCaoDoanhSo], [Thang], [SoPhieuXuat], [TongTriGia], [TyLe], [MaDaiLy]) VALUES (N'BCDS4     ', 2, 1, 20000000, 10, N'DL2       ')
-INSERT [dbo].[BAOCAODOANHSO] ([MaBaoCaoDoanhSo], [Thang], [SoPhieuXuat], [TongTriGia], [TyLe], [MaDaiLy]) VALUES (N'BCDS5     ', 4, 1, 15000000, 10, N'DL2       ')
-INSERT [dbo].[BAOCAODOANHSO] ([MaBaoCaoDoanhSo], [Thang], [SoPhieuXuat], [TongTriGia], [TyLe], [MaDaiLy]) VALUES (N'BCDS6     ', 10, 1, 15000000, 10, N'DL3       ')
-INSERT [dbo].[BAOCAODOANHSO] ([MaBaoCaoDoanhSo], [Thang], [SoPhieuXuat], [TongTriGia], [TyLe], [MaDaiLy]) VALUES (N'BCDS7     ', 1, 1, 18000000, 10, N'DL3       ')
-INSERT [dbo].[BAOCAODOANHSO] ([MaBaoCaoDoanhSo], [Thang], [SoPhieuXuat], [TongTriGia], [TyLe], [MaDaiLy]) VALUES (N'BCDS8     ', 12, 1, 30000000, 10, N'DL4       ')
+INSERT [dbo].[BAOCAODOANHSO] ([MaBaoCaoDoanhSo], [Thang]) VALUES (N'BCDS1     ', 1)
+INSERT [dbo].[BAOCAODOANHSO] ([MaBaoCaoDoanhSo], [Thang]) VALUES (N'BCDS2     ', 3)
+INSERT [dbo].[BAOCAODOANHSO] ([MaBaoCaoDoanhSo], [Thang]) VALUES (N'BCDS3     ', 4)
+INSERT [dbo].[BAOCAODOANHSO] ([MaBaoCaoDoanhSo], [Thang]) VALUES (N'BCDS4     ', 2)
+INSERT [dbo].[BAOCAODOANHSO] ([MaBaoCaoDoanhSo], [Thang]) VALUES (N'BCDS5     ', 4)
+INSERT [dbo].[BAOCAODOANHSO] ([MaBaoCaoDoanhSo], [Thang]) VALUES (N'BCDS6     ', 10)
+INSERT [dbo].[BAOCAODOANHSO] ([MaBaoCaoDoanhSo], [Thang]) VALUES (N'BCDS7     ', 1)
+INSERT [dbo].[BAOCAODOANHSO] ([MaBaoCaoDoanhSo], [Thang]) VALUES (N'BCDS8     ', 12)
 --
 --
 INSERT [dbo].[PHIEUXUATHANG] ([MaPhieuXuat], [NgayLapPhieu], [TongTien], [MaDaiLy]) VALUES (N'PX1       ', CAST(N'2010-01-01T00:00:00.000' AS DateTime), 10000000, N'DL1       ')
@@ -261,4 +283,22 @@ INSERT [dbo].[PHIEUXUAT_MATHANG] ([MaPhieuXuat], [MaMatHang], [SoLuong], [ThanhT
 INSERT [dbo].[PHIEUXUAT_MATHANG] ([MaPhieuXuat], [MaMatHang], [SoLuong], [ThanhTien], [MaDonViTinh]) VALUES (N'PX8       ', N'MH8       ', 15, 30000000, 1)
 
 -------------------------------
------UPDATE THÊM DỮ LIỆU
+INSERT [dbo].[CONGNO_DAILY] ([MaBaoCaoCongNo], [MaDaiLy], [NoDau], [PhatSinh], [NoCuoi]) VALUES (N'BCCN1     ', N'DL1       ',150000,30000,180000)
+INSERT [dbo].[CONGNO_DAILY] ([MaBaoCaoCongNo], [MaDaiLy], [NoDau], [PhatSinh], [NoCuoi]) VALUES (N'BCCN2     ', N'DL2       ',190000,10000,200000)
+INSERT [dbo].[CONGNO_DAILY] ([MaBaoCaoCongNo], [MaDaiLy], [NoDau], [PhatSinh], [NoCuoi]) VALUES (N'BCCN3     ', N'DL2       ',543000,183500,726500)
+INSERT [dbo].[CONGNO_DAILY] ([MaBaoCaoCongNo], [MaDaiLy], [NoDau], [PhatSinh], [NoCuoi]) VALUES (N'BCCN1     ', N'DL5       ',150000,30000,180000)
+INSERT [dbo].[CONGNO_DAILY] ([MaBaoCaoCongNo], [MaDaiLy], [NoDau], [PhatSinh], [NoCuoi]) VALUES (N'BCCN3     ', N'DL6       ',151510,18501,170011)
+INSERT [dbo].[CONGNO_DAILY] ([MaBaoCaoCongNo], [MaDaiLy], [NoDau], [PhatSinh], [NoCuoi]) VALUES (N'BCCN4     ', N'DL3       ',190000,10000,200000)
+INSERT [dbo].[CONGNO_DAILY] ([MaBaoCaoCongNo], [MaDaiLy], [NoDau], [PhatSinh], [NoCuoi]) VALUES (N'BCCN2     ', N'DL4       ',125000,3600,128600)
+INSERT [dbo].[CONGNO_DAILY] ([MaBaoCaoCongNo], [MaDaiLy], [NoDau], [PhatSinh], [NoCuoi]) VALUES (N'BCCN1     ', N'DL8       ',150000,30000,180000)
+---
+INSERT [dbo].[DOANHSO_DAILY] ([MaBaoCaoDoanhSo], [MaDaiLy], [SoPhieuXuat], [TongTriGia], [TyLe]) VALUES (N'BCDS1     ', N'DL1       ',25,2358000,10)
+INSERT [dbo].[DOANHSO_DAILY] ([MaBaoCaoDoanhSo], [MaDaiLy], [SoPhieuXuat], [TongTriGia], [TyLe]) VALUES (N'BCDS1     ', N'DL2       ',5,88000,5)
+INSERT [dbo].[DOANHSO_DAILY] ([MaBaoCaoDoanhSo], [MaDaiLy], [SoPhieuXuat], [TongTriGia], [TyLe]) VALUES (N'BCDS2     ', N'DL5       ',8,11500,8)
+INSERT [dbo].[DOANHSO_DAILY] ([MaBaoCaoDoanhSo], [MaDaiLy], [SoPhieuXuat], [TongTriGia], [TyLe]) VALUES (N'BCDS4     ', N'DL3       ',11,550000,20)
+INSERT [dbo].[DOANHSO_DAILY] ([MaBaoCaoDoanhSo], [MaDaiLy], [SoPhieuXuat], [TongTriGia], [TyLe]) VALUES (N'BCDS3     ', N'DL4       ',10,52000,14)
+INSERT [dbo].[DOANHSO_DAILY] ([MaBaoCaoDoanhSo], [MaDaiLy], [SoPhieuXuat], [TongTriGia], [TyLe]) VALUES (N'BCDS5     ', N'DL1       ',2,2358000,10)
+INSERT [dbo].[DOANHSO_DAILY] ([MaBaoCaoDoanhSo], [MaDaiLy], [SoPhieuXuat], [TongTriGia], [TyLe]) VALUES (N'BCDS7     ', N'DL2       ',8,150000,15)
+INSERT [dbo].[DOANHSO_DAILY] ([MaBaoCaoDoanhSo], [MaDaiLy], [SoPhieuXuat], [TongTriGia], [TyLe]) VALUES (N'BCDS8     ', N'DL5       ',6,50500,9)
+INSERT [dbo].[DOANHSO_DAILY] ([MaBaoCaoDoanhSo], [MaDaiLy], [SoPhieuXuat], [TongTriGia], [TyLe]) VALUES (N'BCDS8     ', N'DL3       ',2,10000,1)
+INSERT [dbo].[DOANHSO_DAILY] ([MaBaoCaoDoanhSo], [MaDaiLy], [SoPhieuXuat], [TongTriGia], [TyLe]) VALUES (N'BCDS4     ', N'DL4       ',10,52000,14)

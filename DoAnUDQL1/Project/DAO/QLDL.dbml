@@ -1,14 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuanLyDaiLy" Class="QLDLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-KTD1ED7\SQLEXPRESS;Initial Catalog=QuanLyDaiLy;Integrated Security=True" SettingsObjectName="Project.Properties.Settings" SettingsPropertyName="QuanLyDaiLyConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-KALP039;Initial Catalog=QuanLyDaiLy;Integrated Security=True" SettingsObjectName="Project.Properties.Settings" SettingsPropertyName="QuanLyDaiLyConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.BAOCAOCONGNO" Member="BAOCAOCONGNOs">
     <Type Name="BAOCAOCONGNO">
       <Column Name="MaBaoCaoCongNo" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Thang" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="NoDau" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PhatSinh" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="NoCuoi" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MaDaiLy" Type="System.String" DbType="Char(10)" CanBeNull="true" />
-      <Association Name="DAILY_BAOCAOCONGNO" Member="DAILY" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="DAILY" IsForeignKey="true" />
+      <Association Name="BAOCAOCONGNO_CONGNO_DAILY" Member="CONGNO_DAILies" ThisKey="MaBaoCaoCongNo" OtherKey="MaBaoCaoCongNo" Type="CONGNO_DAILY" />
     </Type>
   </Table>
   <Table Name="dbo.THAMSO" Member="THAMSOs">
@@ -22,11 +18,18 @@
     <Type Name="BAOCAODOANHSO">
       <Column Name="MaBaoCaoDoanhSo" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Thang" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="SoPhieuXuat" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TongTriGia" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TyLe" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MaDaiLy" Type="System.String" DbType="Char(10)" CanBeNull="true" />
-      <Association Name="DAILY_BAOCAODOANHSO" Member="DAILY" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="DAILY" IsForeignKey="true" />
+      <Association Name="BAOCAODOANHSO_DOANHSO_DAILY" Member="DOANHSO_DAILies" ThisKey="MaBaoCaoDoanhSo" OtherKey="MaBaoCaoDoanhSo" Type="DOANHSO_DAILY" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CONGNO_DAILY" Member="CONGNO_DAILies">
+    <Type Name="CONGNO_DAILY">
+      <Column Name="MaBaoCaoCongNo" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaDaiLy" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NoDau" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PhatSinh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NoCuoi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="BAOCAOCONGNO_CONGNO_DAILY" Member="BAOCAOCONGNO" ThisKey="MaBaoCaoCongNo" OtherKey="MaBaoCaoCongNo" Type="BAOCAOCONGNO" IsForeignKey="true" />
+      <Association Name="DAILY_CONGNO_DAILY" Member="DAILY" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="DAILY" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.DAILY" Member="DAILies">
@@ -40,12 +43,23 @@
       <Column Name="TienNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MaLoaiDaiLy" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MaQuan" Type="System.String" DbType="Char(10)" CanBeNull="true" />
-      <Association Name="DAILY_BAOCAOCONGNO" Member="BAOCAOCONGNOs" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="BAOCAOCONGNO" />
-      <Association Name="DAILY_BAOCAODOANHSO" Member="BAOCAODOANHSOs" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="BAOCAODOANHSO" />
+      <Association Name="DAILY_CONGNO_DAILY" Member="CONGNO_DAILies" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="CONGNO_DAILY" />
+      <Association Name="DAILY_DOANHSO_DAILY" Member="DOANHSO_DAILies" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="DOANHSO_DAILY" />
       <Association Name="DAILY_PHIEUTHUTIEN" Member="PHIEUTHUTIENs" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="PHIEUTHUTIEN" />
       <Association Name="DAILY_PHIEUXUATHANG" Member="PHIEUXUATHANGs" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="PHIEUXUATHANG" />
       <Association Name="LOAIDAILY_DAILY" Member="LOAIDAILY" ThisKey="MaLoaiDaiLy" OtherKey="MaLoaiDaiLy" Type="LOAIDAILY" IsForeignKey="true" />
       <Association Name="QUAN_DAILY" Member="QUAN" ThisKey="MaQuan" OtherKey="MaQuan" Type="QUAN" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DOANHSO_DAILY" Member="DOANHSO_DAILies">
+    <Type Name="DOANHSO_DAILY">
+      <Column Name="MaBaoCaoDoanhSo" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaDaiLy" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SoPhieuXuat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TongTriGia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TyLe" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="DAILY_DOANHSO_DAILY" Member="DAILY" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="DAILY" IsForeignKey="true" />
+      <Association Name="BAOCAODOANHSO_DOANHSO_DAILY" Member="BAOCAODOANHSO" ThisKey="MaBaoCaoDoanhSo" OtherKey="MaBaoCaoDoanhSo" Type="BAOCAODOANHSO" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.DONVITINH" Member="DONVITINHs">

@@ -23,7 +23,7 @@ namespace Project.DAO
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="QuanLyDaiLy")]
-	public partial class QLDLDataContext : System.Data.Linq.DataContext,IDisposable
+	public partial class QLDLDataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
@@ -36,9 +36,15 @@ namespace Project.DAO
     partial void InsertBAOCAODOANHSO(BAOCAODOANHSO instance);
     partial void UpdateBAOCAODOANHSO(BAOCAODOANHSO instance);
     partial void DeleteBAOCAODOANHSO(BAOCAODOANHSO instance);
+    partial void InsertCONGNO_DAILY(CONGNO_DAILY instance);
+    partial void UpdateCONGNO_DAILY(CONGNO_DAILY instance);
+    partial void DeleteCONGNO_DAILY(CONGNO_DAILY instance);
     partial void InsertDAILY(DAILY instance);
     partial void UpdateDAILY(DAILY instance);
     partial void DeleteDAILY(DAILY instance);
+    partial void InsertDOANHSO_DAILY(DOANHSO_DAILY instance);
+    partial void UpdateDOANHSO_DAILY(DOANHSO_DAILY instance);
+    partial void DeleteDOANHSO_DAILY(DOANHSO_DAILY instance);
     partial void InsertDONVITINH(DONVITINH instance);
     partial void UpdateDONVITINH(DONVITINH instance);
     partial void DeleteDONVITINH(DONVITINH instance);
@@ -63,7 +69,7 @@ namespace Project.DAO
     #endregion
 		
 		public QLDLDataContext() : 
-				base(global::Project.Properties.Settings.Default.QuanLyDaiLyConnectionString1, mappingSource)
+				base(global::Project.Properties.Settings.Default.QuanLyDaiLyConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -116,11 +122,27 @@ namespace Project.DAO
 			}
 		}
 		
+		public System.Data.Linq.Table<CONGNO_DAILY> CONGNO_DAILies
+		{
+			get
+			{
+				return this.GetTable<CONGNO_DAILY>();
+			}
+		}
+		
 		public System.Data.Linq.Table<DAILY> DAILies
 		{
 			get
 			{
 				return this.GetTable<DAILY>();
+			}
+		}
+		
+		public System.Data.Linq.Table<DOANHSO_DAILY> DOANHSO_DAILies
+		{
+			get
+			{
+				return this.GetTable<DOANHSO_DAILY>();
 			}
 		}
 		
@@ -191,15 +213,7 @@ namespace Project.DAO
 		
 		private System.Nullable<int> _Thang;
 		
-		private System.Nullable<int> _NoDau;
-		
-		private System.Nullable<int> _PhatSinh;
-		
-		private System.Nullable<int> _NoCuoi;
-		
-		private string _MaDaiLy;
-		
-		private EntityRef<DAILY> _DAILY;
+		private EntitySet<CONGNO_DAILY> _CONGNO_DAILies;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -209,19 +223,11 @@ namespace Project.DAO
     partial void OnMaBaoCaoCongNoChanged();
     partial void OnThangChanging(System.Nullable<int> value);
     partial void OnThangChanged();
-    partial void OnNoDauChanging(System.Nullable<int> value);
-    partial void OnNoDauChanged();
-    partial void OnPhatSinhChanging(System.Nullable<int> value);
-    partial void OnPhatSinhChanged();
-    partial void OnNoCuoiChanging(System.Nullable<int> value);
-    partial void OnNoCuoiChanged();
-    partial void OnMaDaiLyChanging(string value);
-    partial void OnMaDaiLyChanged();
     #endregion
 		
 		public BAOCAOCONGNO()
 		{
-			this._DAILY = default(EntityRef<DAILY>);
+			this._CONGNO_DAILies = new EntitySet<CONGNO_DAILY>(new Action<CONGNO_DAILY>(this.attach_CONGNO_DAILies), new Action<CONGNO_DAILY>(this.detach_CONGNO_DAILies));
 			OnCreated();
 		}
 		
@@ -265,121 +271,16 @@ namespace Project.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoDau", DbType="Int")]
-		public System.Nullable<int> NoDau
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BAOCAOCONGNO_CONGNO_DAILY", Storage="_CONGNO_DAILies", ThisKey="MaBaoCaoCongNo", OtherKey="MaBaoCaoCongNo")]
+		public EntitySet<CONGNO_DAILY> CONGNO_DAILies
 		{
 			get
 			{
-				return this._NoDau;
+				return this._CONGNO_DAILies;
 			}
 			set
 			{
-				if ((this._NoDau != value))
-				{
-					this.OnNoDauChanging(value);
-					this.SendPropertyChanging();
-					this._NoDau = value;
-					this.SendPropertyChanged("NoDau");
-					this.OnNoDauChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhatSinh", DbType="Int")]
-		public System.Nullable<int> PhatSinh
-		{
-			get
-			{
-				return this._PhatSinh;
-			}
-			set
-			{
-				if ((this._PhatSinh != value))
-				{
-					this.OnPhatSinhChanging(value);
-					this.SendPropertyChanging();
-					this._PhatSinh = value;
-					this.SendPropertyChanged("PhatSinh");
-					this.OnPhatSinhChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoCuoi", DbType="Int")]
-		public System.Nullable<int> NoCuoi
-		{
-			get
-			{
-				return this._NoCuoi;
-			}
-			set
-			{
-				if ((this._NoCuoi != value))
-				{
-					this.OnNoCuoiChanging(value);
-					this.SendPropertyChanging();
-					this._NoCuoi = value;
-					this.SendPropertyChanged("NoCuoi");
-					this.OnNoCuoiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaDaiLy", DbType="Char(10)")]
-		public string MaDaiLy
-		{
-			get
-			{
-				return this._MaDaiLy;
-			}
-			set
-			{
-				if ((this._MaDaiLy != value))
-				{
-					if (this._DAILY.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMaDaiLyChanging(value);
-					this.SendPropertyChanging();
-					this._MaDaiLy = value;
-					this.SendPropertyChanged("MaDaiLy");
-					this.OnMaDaiLyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DAILY_BAOCAOCONGNO", Storage="_DAILY", ThisKey="MaDaiLy", OtherKey="MaDaiLy", IsForeignKey=true)]
-		public DAILY DAILY
-		{
-			get
-			{
-				return this._DAILY.Entity;
-			}
-			set
-			{
-				DAILY previousValue = this._DAILY.Entity;
-				if (((previousValue != value) 
-							|| (this._DAILY.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._DAILY.Entity = null;
-						previousValue.BAOCAOCONGNOs.Remove(this);
-					}
-					this._DAILY.Entity = value;
-					if ((value != null))
-					{
-						value.BAOCAOCONGNOs.Add(this);
-						this._MaDaiLy = value.MaDaiLy;
-					}
-					else
-					{
-						this._MaDaiLy = default(string);
-					}
-					this.SendPropertyChanged("DAILY");
-				}
+				this._CONGNO_DAILies.Assign(value);
 			}
 		}
 		
@@ -401,6 +302,18 @@ namespace Project.DAO
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_CONGNO_DAILies(CONGNO_DAILY entity)
+		{
+			this.SendPropertyChanging();
+			entity.BAOCAOCONGNO = this;
+		}
+		
+		private void detach_CONGNO_DAILies(CONGNO_DAILY entity)
+		{
+			this.SendPropertyChanging();
+			entity.BAOCAOCONGNO = null;
 		}
 	}
 	
@@ -477,15 +390,7 @@ namespace Project.DAO
 		
 		private System.Nullable<int> _Thang;
 		
-		private System.Nullable<int> _SoPhieuXuat;
-		
-		private System.Nullable<int> _TongTriGia;
-		
-		private System.Nullable<int> _TyLe;
-		
-		private string _MaDaiLy;
-		
-		private EntityRef<DAILY> _DAILY;
+		private EntitySet<DOANHSO_DAILY> _DOANHSO_DAILies;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -495,19 +400,11 @@ namespace Project.DAO
     partial void OnMaBaoCaoDoanhSoChanged();
     partial void OnThangChanging(System.Nullable<int> value);
     partial void OnThangChanged();
-    partial void OnSoPhieuXuatChanging(System.Nullable<int> value);
-    partial void OnSoPhieuXuatChanged();
-    partial void OnTongTriGiaChanging(System.Nullable<int> value);
-    partial void OnTongTriGiaChanged();
-    partial void OnTyLeChanging(System.Nullable<int> value);
-    partial void OnTyLeChanged();
-    partial void OnMaDaiLyChanging(string value);
-    partial void OnMaDaiLyChanged();
     #endregion
 		
 		public BAOCAODOANHSO()
 		{
-			this._DAILY = default(EntityRef<DAILY>);
+			this._DOANHSO_DAILies = new EntitySet<DOANHSO_DAILY>(new Action<DOANHSO_DAILY>(this.attach_DOANHSO_DAILies), new Action<DOANHSO_DAILY>(this.detach_DOANHSO_DAILies));
 			OnCreated();
 		}
 		
@@ -551,67 +448,120 @@ namespace Project.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoPhieuXuat", DbType="Int")]
-		public System.Nullable<int> SoPhieuXuat
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BAOCAODOANHSO_DOANHSO_DAILY", Storage="_DOANHSO_DAILies", ThisKey="MaBaoCaoDoanhSo", OtherKey="MaBaoCaoDoanhSo")]
+		public EntitySet<DOANHSO_DAILY> DOANHSO_DAILies
 		{
 			get
 			{
-				return this._SoPhieuXuat;
+				return this._DOANHSO_DAILies;
 			}
 			set
 			{
-				if ((this._SoPhieuXuat != value))
+				this._DOANHSO_DAILies.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_DOANHSO_DAILies(DOANHSO_DAILY entity)
+		{
+			this.SendPropertyChanging();
+			entity.BAOCAODOANHSO = this;
+		}
+		
+		private void detach_DOANHSO_DAILies(DOANHSO_DAILY entity)
+		{
+			this.SendPropertyChanging();
+			entity.BAOCAODOANHSO = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CONGNO_DAILY")]
+	public partial class CONGNO_DAILY : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _MaBaoCaoCongNo;
+		
+		private string _MaDaiLy;
+		
+		private System.Nullable<int> _NoDau;
+		
+		private System.Nullable<int> _PhatSinh;
+		
+		private System.Nullable<int> _NoCuoi;
+		
+		private EntityRef<BAOCAOCONGNO> _BAOCAOCONGNO;
+		
+		private EntityRef<DAILY> _DAILY;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaBaoCaoCongNoChanging(string value);
+    partial void OnMaBaoCaoCongNoChanged();
+    partial void OnMaDaiLyChanging(string value);
+    partial void OnMaDaiLyChanged();
+    partial void OnNoDauChanging(System.Nullable<int> value);
+    partial void OnNoDauChanged();
+    partial void OnPhatSinhChanging(System.Nullable<int> value);
+    partial void OnPhatSinhChanged();
+    partial void OnNoCuoiChanging(System.Nullable<int> value);
+    partial void OnNoCuoiChanged();
+    #endregion
+		
+		public CONGNO_DAILY()
+		{
+			this._BAOCAOCONGNO = default(EntityRef<BAOCAOCONGNO>);
+			this._DAILY = default(EntityRef<DAILY>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaBaoCaoCongNo", DbType="Char(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MaBaoCaoCongNo
+		{
+			get
+			{
+				return this._MaBaoCaoCongNo;
+			}
+			set
+			{
+				if ((this._MaBaoCaoCongNo != value))
 				{
-					this.OnSoPhieuXuatChanging(value);
+					if (this._BAOCAOCONGNO.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaBaoCaoCongNoChanging(value);
 					this.SendPropertyChanging();
-					this._SoPhieuXuat = value;
-					this.SendPropertyChanged("SoPhieuXuat");
-					this.OnSoPhieuXuatChanged();
+					this._MaBaoCaoCongNo = value;
+					this.SendPropertyChanged("MaBaoCaoCongNo");
+					this.OnMaBaoCaoCongNoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TongTriGia", DbType="Int")]
-		public System.Nullable<int> TongTriGia
-		{
-			get
-			{
-				return this._TongTriGia;
-			}
-			set
-			{
-				if ((this._TongTriGia != value))
-				{
-					this.OnTongTriGiaChanging(value);
-					this.SendPropertyChanging();
-					this._TongTriGia = value;
-					this.SendPropertyChanged("TongTriGia");
-					this.OnTongTriGiaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TyLe", DbType="Int")]
-		public System.Nullable<int> TyLe
-		{
-			get
-			{
-				return this._TyLe;
-			}
-			set
-			{
-				if ((this._TyLe != value))
-				{
-					this.OnTyLeChanging(value);
-					this.SendPropertyChanging();
-					this._TyLe = value;
-					this.SendPropertyChanged("TyLe");
-					this.OnTyLeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaDaiLy", DbType="Char(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaDaiLy", DbType="Char(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string MaDaiLy
 		{
 			get
@@ -635,7 +585,101 @@ namespace Project.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DAILY_BAOCAODOANHSO", Storage="_DAILY", ThisKey="MaDaiLy", OtherKey="MaDaiLy", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoDau", DbType="Int")]
+		public System.Nullable<int> NoDau
+		{
+			get
+			{
+				return this._NoDau;
+			}
+			set
+			{
+				if ((this._NoDau != value))
+				{
+					this.OnNoDauChanging(value);
+					this.SendPropertyChanging();
+					this._NoDau = value;
+					this.SendPropertyChanged("NoDau");
+					this.OnNoDauChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhatSinh", DbType="Int")]
+		public System.Nullable<int> PhatSinh
+		{
+			get
+			{
+				return this._PhatSinh;
+			}
+			set
+			{
+				if ((this._PhatSinh != value))
+				{
+					this.OnPhatSinhChanging(value);
+					this.SendPropertyChanging();
+					this._PhatSinh = value;
+					this.SendPropertyChanged("PhatSinh");
+					this.OnPhatSinhChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoCuoi", DbType="Int")]
+		public System.Nullable<int> NoCuoi
+		{
+			get
+			{
+				return this._NoCuoi;
+			}
+			set
+			{
+				if ((this._NoCuoi != value))
+				{
+					this.OnNoCuoiChanging(value);
+					this.SendPropertyChanging();
+					this._NoCuoi = value;
+					this.SendPropertyChanged("NoCuoi");
+					this.OnNoCuoiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BAOCAOCONGNO_CONGNO_DAILY", Storage="_BAOCAOCONGNO", ThisKey="MaBaoCaoCongNo", OtherKey="MaBaoCaoCongNo", IsForeignKey=true)]
+		public BAOCAOCONGNO BAOCAOCONGNO
+		{
+			get
+			{
+				return this._BAOCAOCONGNO.Entity;
+			}
+			set
+			{
+				BAOCAOCONGNO previousValue = this._BAOCAOCONGNO.Entity;
+				if (((previousValue != value) 
+							|| (this._BAOCAOCONGNO.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._BAOCAOCONGNO.Entity = null;
+						previousValue.CONGNO_DAILies.Remove(this);
+					}
+					this._BAOCAOCONGNO.Entity = value;
+					if ((value != null))
+					{
+						value.CONGNO_DAILies.Add(this);
+						this._MaBaoCaoCongNo = value.MaBaoCaoCongNo;
+					}
+					else
+					{
+						this._MaBaoCaoCongNo = default(string);
+					}
+					this.SendPropertyChanged("BAOCAOCONGNO");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DAILY_CONGNO_DAILY", Storage="_DAILY", ThisKey="MaDaiLy", OtherKey="MaDaiLy", IsForeignKey=true)]
 		public DAILY DAILY
 		{
 			get
@@ -652,12 +696,12 @@ namespace Project.DAO
 					if ((previousValue != null))
 					{
 						this._DAILY.Entity = null;
-						previousValue.BAOCAODOANHSOs.Remove(this);
+						previousValue.CONGNO_DAILies.Remove(this);
 					}
 					this._DAILY.Entity = value;
 					if ((value != null))
 					{
-						value.BAOCAODOANHSOs.Add(this);
+						value.CONGNO_DAILies.Add(this);
 						this._MaDaiLy = value.MaDaiLy;
 					}
 					else
@@ -714,9 +758,9 @@ namespace Project.DAO
 		
 		private string _MaQuan;
 		
-		private EntitySet<BAOCAOCONGNO> _BAOCAOCONGNOs;
+		private EntitySet<CONGNO_DAILY> _CONGNO_DAILies;
 		
-		private EntitySet<BAOCAODOANHSO> _BAOCAODOANHSOs;
+		private EntitySet<DOANHSO_DAILY> _DOANHSO_DAILies;
 		
 		private EntitySet<PHIEUTHUTIEN> _PHIEUTHUTIENs;
 		
@@ -752,8 +796,8 @@ namespace Project.DAO
 		
 		public DAILY()
 		{
-			this._BAOCAOCONGNOs = new EntitySet<BAOCAOCONGNO>(new Action<BAOCAOCONGNO>(this.attach_BAOCAOCONGNOs), new Action<BAOCAOCONGNO>(this.detach_BAOCAOCONGNOs));
-			this._BAOCAODOANHSOs = new EntitySet<BAOCAODOANHSO>(new Action<BAOCAODOANHSO>(this.attach_BAOCAODOANHSOs), new Action<BAOCAODOANHSO>(this.detach_BAOCAODOANHSOs));
+			this._CONGNO_DAILies = new EntitySet<CONGNO_DAILY>(new Action<CONGNO_DAILY>(this.attach_CONGNO_DAILies), new Action<CONGNO_DAILY>(this.detach_CONGNO_DAILies));
+			this._DOANHSO_DAILies = new EntitySet<DOANHSO_DAILY>(new Action<DOANHSO_DAILY>(this.attach_DOANHSO_DAILies), new Action<DOANHSO_DAILY>(this.detach_DOANHSO_DAILies));
 			this._PHIEUTHUTIENs = new EntitySet<PHIEUTHUTIEN>(new Action<PHIEUTHUTIEN>(this.attach_PHIEUTHUTIENs), new Action<PHIEUTHUTIEN>(this.detach_PHIEUTHUTIENs));
 			this._PHIEUXUATHANGs = new EntitySet<PHIEUXUATHANG>(new Action<PHIEUXUATHANG>(this.attach_PHIEUXUATHANGs), new Action<PHIEUXUATHANG>(this.detach_PHIEUXUATHANGs));
 			this._LOAIDAILY = default(EntityRef<LOAIDAILY>);
@@ -949,29 +993,29 @@ namespace Project.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DAILY_BAOCAOCONGNO", Storage="_BAOCAOCONGNOs", ThisKey="MaDaiLy", OtherKey="MaDaiLy")]
-		public EntitySet<BAOCAOCONGNO> BAOCAOCONGNOs
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DAILY_CONGNO_DAILY", Storage="_CONGNO_DAILies", ThisKey="MaDaiLy", OtherKey="MaDaiLy")]
+		public EntitySet<CONGNO_DAILY> CONGNO_DAILies
 		{
 			get
 			{
-				return this._BAOCAOCONGNOs;
+				return this._CONGNO_DAILies;
 			}
 			set
 			{
-				this._BAOCAOCONGNOs.Assign(value);
+				this._CONGNO_DAILies.Assign(value);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DAILY_BAOCAODOANHSO", Storage="_BAOCAODOANHSOs", ThisKey="MaDaiLy", OtherKey="MaDaiLy")]
-		public EntitySet<BAOCAODOANHSO> BAOCAODOANHSOs
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DAILY_DOANHSO_DAILY", Storage="_DOANHSO_DAILies", ThisKey="MaDaiLy", OtherKey="MaDaiLy")]
+		public EntitySet<DOANHSO_DAILY> DOANHSO_DAILies
 		{
 			get
 			{
-				return this._BAOCAODOANHSOs;
+				return this._DOANHSO_DAILies;
 			}
 			set
 			{
-				this._BAOCAODOANHSOs.Assign(value);
+				this._DOANHSO_DAILies.Assign(value);
 			}
 		}
 		
@@ -1089,25 +1133,25 @@ namespace Project.DAO
 			}
 		}
 		
-		private void attach_BAOCAOCONGNOs(BAOCAOCONGNO entity)
+		private void attach_CONGNO_DAILies(CONGNO_DAILY entity)
 		{
 			this.SendPropertyChanging();
 			entity.DAILY = this;
 		}
 		
-		private void detach_BAOCAOCONGNOs(BAOCAOCONGNO entity)
+		private void detach_CONGNO_DAILies(CONGNO_DAILY entity)
 		{
 			this.SendPropertyChanging();
 			entity.DAILY = null;
 		}
 		
-		private void attach_BAOCAODOANHSOs(BAOCAODOANHSO entity)
+		private void attach_DOANHSO_DAILies(DOANHSO_DAILY entity)
 		{
 			this.SendPropertyChanging();
 			entity.DAILY = this;
 		}
 		
-		private void detach_BAOCAODOANHSOs(BAOCAODOANHSO entity)
+		private void detach_DOANHSO_DAILies(DOANHSO_DAILY entity)
 		{
 			this.SendPropertyChanging();
 			entity.DAILY = null;
@@ -1135,6 +1179,246 @@ namespace Project.DAO
 		{
 			this.SendPropertyChanging();
 			entity.DAILY = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DOANHSO_DAILY")]
+	public partial class DOANHSO_DAILY : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _MaBaoCaoDoanhSo;
+		
+		private string _MaDaiLy;
+		
+		private System.Nullable<int> _SoPhieuXuat;
+		
+		private System.Nullable<int> _TongTriGia;
+		
+		private System.Nullable<int> _TyLe;
+		
+		private EntityRef<DAILY> _DAILY;
+		
+		private EntityRef<BAOCAODOANHSO> _BAOCAODOANHSO;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaBaoCaoDoanhSoChanging(string value);
+    partial void OnMaBaoCaoDoanhSoChanged();
+    partial void OnMaDaiLyChanging(string value);
+    partial void OnMaDaiLyChanged();
+    partial void OnSoPhieuXuatChanging(System.Nullable<int> value);
+    partial void OnSoPhieuXuatChanged();
+    partial void OnTongTriGiaChanging(System.Nullable<int> value);
+    partial void OnTongTriGiaChanged();
+    partial void OnTyLeChanging(System.Nullable<int> value);
+    partial void OnTyLeChanged();
+    #endregion
+		
+		public DOANHSO_DAILY()
+		{
+			this._DAILY = default(EntityRef<DAILY>);
+			this._BAOCAODOANHSO = default(EntityRef<BAOCAODOANHSO>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaBaoCaoDoanhSo", DbType="Char(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MaBaoCaoDoanhSo
+		{
+			get
+			{
+				return this._MaBaoCaoDoanhSo;
+			}
+			set
+			{
+				if ((this._MaBaoCaoDoanhSo != value))
+				{
+					if (this._BAOCAODOANHSO.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaBaoCaoDoanhSoChanging(value);
+					this.SendPropertyChanging();
+					this._MaBaoCaoDoanhSo = value;
+					this.SendPropertyChanged("MaBaoCaoDoanhSo");
+					this.OnMaBaoCaoDoanhSoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaDaiLy", DbType="Char(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MaDaiLy
+		{
+			get
+			{
+				return this._MaDaiLy;
+			}
+			set
+			{
+				if ((this._MaDaiLy != value))
+				{
+					if (this._DAILY.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaDaiLyChanging(value);
+					this.SendPropertyChanging();
+					this._MaDaiLy = value;
+					this.SendPropertyChanged("MaDaiLy");
+					this.OnMaDaiLyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoPhieuXuat", DbType="Int")]
+		public System.Nullable<int> SoPhieuXuat
+		{
+			get
+			{
+				return this._SoPhieuXuat;
+			}
+			set
+			{
+				if ((this._SoPhieuXuat != value))
+				{
+					this.OnSoPhieuXuatChanging(value);
+					this.SendPropertyChanging();
+					this._SoPhieuXuat = value;
+					this.SendPropertyChanged("SoPhieuXuat");
+					this.OnSoPhieuXuatChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TongTriGia", DbType="Int")]
+		public System.Nullable<int> TongTriGia
+		{
+			get
+			{
+				return this._TongTriGia;
+			}
+			set
+			{
+				if ((this._TongTriGia != value))
+				{
+					this.OnTongTriGiaChanging(value);
+					this.SendPropertyChanging();
+					this._TongTriGia = value;
+					this.SendPropertyChanged("TongTriGia");
+					this.OnTongTriGiaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TyLe", DbType="Int")]
+		public System.Nullable<int> TyLe
+		{
+			get
+			{
+				return this._TyLe;
+			}
+			set
+			{
+				if ((this._TyLe != value))
+				{
+					this.OnTyLeChanging(value);
+					this.SendPropertyChanging();
+					this._TyLe = value;
+					this.SendPropertyChanged("TyLe");
+					this.OnTyLeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DAILY_DOANHSO_DAILY", Storage="_DAILY", ThisKey="MaDaiLy", OtherKey="MaDaiLy", IsForeignKey=true)]
+		public DAILY DAILY
+		{
+			get
+			{
+				return this._DAILY.Entity;
+			}
+			set
+			{
+				DAILY previousValue = this._DAILY.Entity;
+				if (((previousValue != value) 
+							|| (this._DAILY.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._DAILY.Entity = null;
+						previousValue.DOANHSO_DAILies.Remove(this);
+					}
+					this._DAILY.Entity = value;
+					if ((value != null))
+					{
+						value.DOANHSO_DAILies.Add(this);
+						this._MaDaiLy = value.MaDaiLy;
+					}
+					else
+					{
+						this._MaDaiLy = default(string);
+					}
+					this.SendPropertyChanged("DAILY");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BAOCAODOANHSO_DOANHSO_DAILY", Storage="_BAOCAODOANHSO", ThisKey="MaBaoCaoDoanhSo", OtherKey="MaBaoCaoDoanhSo", IsForeignKey=true)]
+		public BAOCAODOANHSO BAOCAODOANHSO
+		{
+			get
+			{
+				return this._BAOCAODOANHSO.Entity;
+			}
+			set
+			{
+				BAOCAODOANHSO previousValue = this._BAOCAODOANHSO.Entity;
+				if (((previousValue != value) 
+							|| (this._BAOCAODOANHSO.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._BAOCAODOANHSO.Entity = null;
+						previousValue.DOANHSO_DAILies.Remove(this);
+					}
+					this._BAOCAODOANHSO.Entity = value;
+					if ((value != null))
+					{
+						value.DOANHSO_DAILies.Add(this);
+						this._MaBaoCaoDoanhSo = value.MaBaoCaoDoanhSo;
+					}
+					else
+					{
+						this._MaBaoCaoDoanhSo = default(string);
+					}
+					this.SendPropertyChanged("BAOCAODOANHSO");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	

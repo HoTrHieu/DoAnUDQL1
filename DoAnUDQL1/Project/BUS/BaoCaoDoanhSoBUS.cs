@@ -40,16 +40,13 @@ namespace Project.BUS
             return BaoCaoDoanhSoDAO.Instance.CreateCode();
         }
         //insert
-        public bool Insert(int Thang, int SoPhieuX, int TongTG, int TyLe, string MaDL)
+        public bool Insert(int Thang)
         {
             string Ma = BaoCaoDoanhSoDAO.Instance.CreateCode();
             BAOCAODOANHSO temp = new BAOCAODOANHSO();
             temp.MaBaoCaoDoanhSo = Ma;
             temp.Thang = Thang;
-            temp.SoPhieuXuat = SoPhieuX;
-            temp.TongTriGia = TongTG;
-            temp.TyLe = TyLe;
-            temp.MaDaiLy = MaDL;
+            
 
             return BaoCaoDoanhSoDAO.Instance.Insert(temp);
         }

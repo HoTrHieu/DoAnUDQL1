@@ -39,10 +39,7 @@ namespace Project.DAO
             {
                 BAOCAOCONGNO temp = db.BAOCAOCONGNOs.Where(p => p.MaBaoCaoCongNo == MaCN).FirstOrDefault();
                 temp.Thang = cn.Thang;
-                temp.NoDau = cn.NoDau;
-                temp.PhatSinh = cn.PhatSinh;
-                temp.NoCuoi = cn.NoCuoi;
-                temp.MaDaiLy = cn.MaDaiLy;
+                
                 try
                 {
                     db.SubmitChanges();

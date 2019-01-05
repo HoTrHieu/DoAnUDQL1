@@ -39,17 +39,13 @@ namespace Project.BUS
             return BaoCaoCongNoDAO.Instance.CreateCode();
         }
         //insert
-        public bool Insert(int Thang, int NoDau,int PSinh,int NoCuoi,string MaDL)
+        public bool Insert(int Thang)
         {
             string Ma = BaoCaoCongNoDAO.Instance.CreateCode();
             BAOCAOCONGNO temp = new BAOCAOCONGNO();
             temp.MaBaoCaoCongNo = Ma;
             temp.Thang = Thang;
-            temp.NoDau = NoDau;
-            temp.PhatSinh = PSinh;
-            temp.NoCuoi = NoCuoi;
-            temp.MaDaiLy = MaDL;
-
+            
             return BaoCaoCongNoDAO.Instance.Insert(temp);
         }
     }

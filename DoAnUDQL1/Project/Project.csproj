@@ -48,7 +48,9 @@
   <ItemGroup>
     <Compile Include="BUS\BaoCaoCongNoBUS.cs" />
     <Compile Include="BUS\BaoCaoDoanhSoBUS.cs" />
+    <Compile Include="BUS\CongNo_DaiLyBUS.cs" />
     <Compile Include="BUS\DaiLyBUS.cs" />
+    <Compile Include="BUS\DoanhSo_DaiLyBUS.cs" />
     <Compile Include="BUS\DonViTinhBUS.cs" />
     <Compile Include="BUS\LoaiDaiLyBUS.cs" />
     <Compile Include="BUS\MatHangBUS.cs" />
@@ -58,7 +60,9 @@
     <Compile Include="BUS\QuanBUS.cs" />
     <Compile Include="DAO\BaoCaoCongNoDAO.cs" />
     <Compile Include="DAO\BaoCaoDoanhSoDAO.cs" />
+    <Compile Include="DAO\CongNo_DaiLyDAO.cs" />
     <Compile Include="DAO\DaiLyDAO.cs" />
+    <Compile Include="DAO\DoanhSo_DaiLyDAO.cs" />
     <Compile Include="DAO\DonViTinhDAO.cs" />
     <Compile Include="DAO\LoaiDaiLyDAO.cs" />
     <Compile Include="DAO\MatHangDAO.cs" />

@@ -41,6 +41,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCapNhatThamSo = new System.Windows.Forms.Button();
+            this.btnDSDL = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -88,7 +89,7 @@
             this.btnThongKeMatHang.BackColor = System.Drawing.Color.Teal;
             this.btnThongKeMatHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThongKeMatHang.ForeColor = System.Drawing.Color.White;
-            this.btnThongKeMatHang.Location = new System.Drawing.Point(364, 121);
+            this.btnThongKeMatHang.Location = new System.Drawing.Point(363, 89);
             this.btnThongKeMatHang.Name = "btnThongKeMatHang";
             this.btnThongKeMatHang.Size = new System.Drawing.Size(128, 38);
             this.btnThongKeMatHang.TabIndex = 2;
@@ -101,7 +102,7 @@
             this.btnBaoCaoDoanhSo.BackColor = System.Drawing.Color.Teal;
             this.btnBaoCaoDoanhSo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBaoCaoDoanhSo.ForeColor = System.Drawing.Color.White;
-            this.btnBaoCaoDoanhSo.Location = new System.Drawing.Point(364, 241);
+            this.btnBaoCaoDoanhSo.Location = new System.Drawing.Point(363, 209);
             this.btnBaoCaoDoanhSo.Name = "btnBaoCaoDoanhSo";
             this.btnBaoCaoDoanhSo.Size = new System.Drawing.Size(128, 38);
             this.btnBaoCaoDoanhSo.TabIndex = 2;
@@ -114,7 +115,7 @@
             this.btnBaoCaoCongNo.BackColor = System.Drawing.Color.Teal;
             this.btnBaoCaoCongNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBaoCaoCongNo.ForeColor = System.Drawing.Color.White;
-            this.btnBaoCaoCongNo.Location = new System.Drawing.Point(364, 181);
+            this.btnBaoCaoCongNo.Location = new System.Drawing.Point(363, 149);
             this.btnBaoCaoCongNo.Name = "btnBaoCaoCongNo";
             this.btnBaoCaoCongNo.Size = new System.Drawing.Size(128, 38);
             this.btnBaoCaoCongNo.TabIndex = 2;
@@ -190,12 +191,26 @@
             this.btnCapNhatThamSo.UseVisualStyleBackColor = false;
             this.btnCapNhatThamSo.Click += new System.EventHandler(this.btnCapNhatThamSo_Click);
             // 
+            // btnDSDL
+            // 
+            this.btnDSDL.BackColor = System.Drawing.Color.Teal;
+            this.btnDSDL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDSDL.ForeColor = System.Drawing.Color.White;
+            this.btnDSDL.Location = new System.Drawing.Point(363, 269);
+            this.btnDSDL.Name = "btnDSDL";
+            this.btnDSDL.Size = new System.Drawing.Size(128, 38);
+            this.btnDSDL.TabIndex = 5;
+            this.btnDSDL.Text = "Danh Sách Đại Lý";
+            this.btnDSDL.UseVisualStyleBackColor = false;
+            this.btnDSDL.Click += new System.EventHandler(this.btnDSDL_Click);
+            // 
             // frmGiaoDienChinh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(513, 402);
+            this.Controls.Add(this.btnDSDL);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnPhieuThuTien);
             this.Controls.Add(this.btnBaoCaoCongNo);
@@ -237,5 +252,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnCapNhatThamSo;
+        private System.Windows.Forms.Button btnDSDL;
     }
 }

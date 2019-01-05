@@ -58,5 +58,11 @@ namespace Project.GUI
             frmCapNhatThamSo capNhatThamSo = new frmCapNhatThamSo();
             capNhatThamSo.ShowDialog();
         }
+
+        private void btnDSDL_Click(object sender, EventArgs e)
+        {
+            frmDanhSachDaiLy dsdl = new frmDanhSachDaiLy();
+            dsdl.ShowDialog();
+        }
     }
 }

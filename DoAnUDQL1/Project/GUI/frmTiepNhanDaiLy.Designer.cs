@@ -148,6 +148,8 @@
             // 
             // dtpNgayTiepNhan
             // 
+            this.dtpNgayTiepNhan.CustomFormat = "yyyy-MM-dd";
+            this.dtpNgayTiepNhan.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpNgayTiepNhan.Location = new System.Drawing.Point(107, 172);
             this.dtpNgayTiepNhan.Name = "dtpNgayTiepNhan";
             this.dtpNgayTiepNhan.Size = new System.Drawing.Size(199, 20);
@@ -188,6 +190,7 @@
             this.btnThem.TabIndex = 6;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = false;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnThoat
             // 
@@ -242,6 +245,7 @@
             this.Name = "frmTiepNhanDaiLy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm Đại Lý";
+            this.Load += new System.EventHandler(this.frmTiepNhanDaiLy_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

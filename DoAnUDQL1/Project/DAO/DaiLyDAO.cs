@@ -64,13 +64,20 @@ namespace Project.DAO
             string MaDL;
             using (QLDLDataContext db = new QLDLDataContext())
             {
-                List<string> lstMa = db.DAILies.Select(p => p.MaDaiLy).ToList();
+                List<string> lstMa = db.DAILies.Select(p => p.MaDaiLy.Trim()).ToList();
                 MaDL = lstMa[0];
                 foreach (string temp in lstMa)
                 {
-                    if (temp.Length > MaDL.Length || string.Compare(temp, MaDL) == 1)
+                    if(temp.Length > MaDL.Length)
                     {
                         MaDL = temp;
+                    }
+                    else if(temp.Length == MaDL.Length)
+                    {
+                        if(String.Compare(temp.Substring(2, temp.Length - 2), MaDL.Substring(2, MaDL.Length - 2)) > 0)
+                        {
+                            MaDL = temp;
+                        }
                     }
                 }
                 MaDL = MaDL.TrimEnd();

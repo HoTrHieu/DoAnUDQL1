@@ -29,5 +29,11 @@ namespace Project.BUS
         {
             return LoaiDaiLyDAO.Instance.GetByID(MaL);
         }
+
+        public List<LOAIDAILY> GetAll()
+        {
+            return LoaiDaiLyDAO.Instance.GetAll();
+        }
+
     }
 }

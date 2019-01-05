@@ -71,10 +71,10 @@
       <DependentUpon>QLDL.dbml</DependentUpon>
     </Compile>
     <Compile Include="DAO\QuanDAO.cs" />
-    <Compile Include="frmDanhSachDaiLy.cs">
+    <Compile Include="GUI\frmDanhSachDaiLy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDanhSachDaiLy.Designer.cs">
+    <Compile Include="GUI\frmDanhSachDaiLy.Designer.cs">
       <DependentUpon>frmDanhSachDaiLy.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\frmCapNhatThamSo.cs">
@@ -127,7 +127,7 @@
     <Compile Include="GUI\frmThongTinBaoCaoDoanhSo.Designer.cs">
       <DependentUpon>frmThongTinBaoCaoDoanhSo.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmDanhSachDaiLy.resx">
+    <EmbeddedResource Include="GUI\frmDanhSachDaiLy.resx">
       <DependentUpon>frmDanhSachDaiLy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmCapNhatThamSo.resx">

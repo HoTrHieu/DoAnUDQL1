@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Project.BUS;
 
 namespace Project.DAO
 {
@@ -50,6 +51,15 @@ namespace Project.DAO
                 {
                     return false;
                 }
+            }
+        }
+
+        public List<QUAN> GetAll()
+        {
+            using (QLDLDataContext db = new QLDLDataContext())
+            {
+                var query = db.QUANs.Select(q => q).ToList();
+                return query;
             }
         }
     }

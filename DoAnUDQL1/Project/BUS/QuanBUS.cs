@@ -36,5 +36,10 @@ namespace Project.BUS
             return QuanDAO.Instance.Update(MaQ, q);
         }
 
+        public List<QUAN> GetAll()
+        {
+            return QuanDAO.Instance.GetAll();
+        }
+
     }
 }

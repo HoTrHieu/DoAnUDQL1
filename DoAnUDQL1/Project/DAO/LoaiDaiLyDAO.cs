@@ -32,5 +32,14 @@ namespace Project.DAO
             }
             return temp;
         }
+
+        public List<LOAIDAILY> GetAll()
+        {
+            using (QLDLDataContext db = new QLDLDataContext())
+            {
+                var query = db.LOAIDAILies.Select(q => q).ToList();
+                return query;
+            }
+        }
     }
 }

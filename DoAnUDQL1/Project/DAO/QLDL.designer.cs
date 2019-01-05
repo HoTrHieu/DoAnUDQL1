@@ -23,7 +23,7 @@ namespace Project.DAO
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="QuanLyDaiLy")]
-	public partial class QLDLDataContext : System.Data.Linq.DataContext
+	public partial class QLDLDataContext : System.Data.Linq.DataContext,IDisposable
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
@@ -63,7 +63,7 @@ namespace Project.DAO
     #endregion
 		
 		public QLDLDataContext() : 
-				base(global::Project.Properties.Settings.Default.QuanLyDaiLyConnectionString, mappingSource)
+				base(global::Project.Properties.Settings.Default.QuanLyDaiLyConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -97,6 +97,14 @@ namespace Project.DAO
 			get
 			{
 				return this.GetTable<BAOCAOCONGNO>();
+			}
+		}
+		
+		public System.Data.Linq.Table<THAMSO> THAMSOs
+		{
+			get
+			{
+				return this.GetTable<THAMSO>();
 			}
 		}
 		
@@ -169,14 +177,6 @@ namespace Project.DAO
 			get
 			{
 				return this.GetTable<QUAN>();
-			}
-		}
-		
-		public System.Data.Linq.Table<THAMSO> THAMSOs
-		{
-			get
-			{
-				return this.GetTable<THAMSO>();
 			}
 		}
 	}
@@ -400,6 +400,69 @@ namespace Project.DAO
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.THAMSO")]
+	public partial class THAMSO
+	{
+		
+		private System.Nullable<int> _SoDaiLyToiDaQuan;
+		
+		private System.Nullable<int> _SoMatHang;
+		
+		private System.Nullable<int> _SoDonViTinh;
+		
+		public THAMSO()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoDaiLyToiDaQuan", DbType="Int")]
+		public System.Nullable<int> SoDaiLyToiDaQuan
+		{
+			get
+			{
+				return this._SoDaiLyToiDaQuan;
+			}
+			set
+			{
+				if ((this._SoDaiLyToiDaQuan != value))
+				{
+					this._SoDaiLyToiDaQuan = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoMatHang", DbType="Int")]
+		public System.Nullable<int> SoMatHang
+		{
+			get
+			{
+				return this._SoMatHang;
+			}
+			set
+			{
+				if ((this._SoMatHang != value))
+				{
+					this._SoMatHang = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoDonViTinh", DbType="Int")]
+		public System.Nullable<int> SoDonViTinh
+		{
+			get
+			{
+				return this._SoDonViTinh;
+			}
+			set
+			{
+				if ((this._SoDonViTinh != value))
+				{
+					this._SoDonViTinh = value;
+				}
 			}
 		}
 	}
@@ -2259,69 +2322,6 @@ namespace Project.DAO
 		{
 			this.SendPropertyChanging();
 			entity.QUAN = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.THAMSO")]
-	public partial class THAMSO
-	{
-		
-		private System.Nullable<int> _SoDaiLyToiDaQuan;
-		
-		private System.Nullable<int> _SoMatHang;
-		
-		private System.Nullable<int> _SoDonViTinh;
-		
-		public THAMSO()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoDaiLyToiDaQuan", DbType="Int")]
-		public System.Nullable<int> SoDaiLyToiDaQuan
-		{
-			get
-			{
-				return this._SoDaiLyToiDaQuan;
-			}
-			set
-			{
-				if ((this._SoDaiLyToiDaQuan != value))
-				{
-					this._SoDaiLyToiDaQuan = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoMatHang", DbType="Int")]
-		public System.Nullable<int> SoMatHang
-		{
-			get
-			{
-				return this._SoMatHang;
-			}
-			set
-			{
-				if ((this._SoMatHang != value))
-				{
-					this._SoMatHang = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoDonViTinh", DbType="Int")]
-		public System.Nullable<int> SoDonViTinh
-		{
-			get
-			{
-				return this._SoDonViTinh;
-			}
-			set
-			{
-				if ((this._SoDonViTinh != value))
-				{
-					this._SoDonViTinh = value;
-				}
-			}
 		}
 	}
 }

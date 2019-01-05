@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuanLyDaiLy" Class="QLDLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-KALP039;Initial Catalog=QuanLyDaiLy;Integrated Security=True" SettingsObjectName="Project.Properties.Settings" SettingsPropertyName="QuanLyDaiLyConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-KTD1ED7\SQLEXPRESS;Initial Catalog=QuanLyDaiLy;Integrated Security=True" SettingsObjectName="Project.Properties.Settings" SettingsPropertyName="QuanLyDaiLyConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.BAOCAOCONGNO" Member="BAOCAOCONGNOs">
     <Type Name="BAOCAOCONGNO">
       <Column Name="MaBaoCaoCongNo" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -9,6 +9,13 @@
       <Column Name="NoCuoi" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MaDaiLy" Type="System.String" DbType="Char(10)" CanBeNull="true" />
       <Association Name="DAILY_BAOCAOCONGNO" Member="DAILY" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="DAILY" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.THAMSO" Member="THAMSOs">
+    <Type Name="THAMSO">
+      <Column Name="SoDaiLyToiDaQuan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoMatHang" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoDonViTinh" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.BAOCAODOANHSO" Member="BAOCAODOANHSOs">
@@ -101,13 +108,6 @@
       <Column Name="MaQuan" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TenQuan" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="QUAN_DAILY" Member="DAILies" ThisKey="MaQuan" OtherKey="MaQuan" Type="DAILY" />
-    </Type>
-  </Table>
-  <Table Name="dbo.THAMSO" Member="THAMSOs">
-    <Type Name="THAMSO">
-      <Column Name="SoDaiLyToiDaQuan" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="SoMatHang" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="SoDonViTinh" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

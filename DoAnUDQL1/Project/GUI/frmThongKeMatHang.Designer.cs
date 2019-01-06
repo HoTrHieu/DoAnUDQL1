@@ -28,14 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThongKeMatHang));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvMatHang = new System.Windows.Forms.DataGridView();
-            this.MaMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DaXuatKho = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TonKho = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnInThongKe = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -70,36 +67,18 @@
             this.dgvMatHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMatHang.BackgroundColor = System.Drawing.Color.Teal;
             this.dgvMatHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMatHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MaMH,
-            this.TenMH,
-            this.DaXuatKho,
-            this.TonKho});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMatHang.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvMatHang.Location = new System.Drawing.Point(6, 19);
             this.dgvMatHang.Name = "dgvMatHang";
             this.dgvMatHang.Size = new System.Drawing.Size(587, 266);
             this.dgvMatHang.TabIndex = 0;
-            // 
-            // MaMH
-            // 
-            this.MaMH.HeaderText = "Mã Mặt Hàng";
-            this.MaMH.Name = "MaMH";
-            // 
-            // TenMH
-            // 
-            this.TenMH.FillWeight = 200F;
-            this.TenMH.HeaderText = "Tên Mặt Hàng";
-            this.TenMH.Name = "TenMH";
-            // 
-            // DaXuatKho
-            // 
-            this.DaXuatKho.HeaderText = "Số Lượng Đã Xuất Kho";
-            this.DaXuatKho.Name = "DaXuatKho";
-            // 
-            // TonKho
-            // 
-            this.TonKho.HeaderText = "Số Lượng Tồn Kho";
-            this.TonKho.Name = "TonKho";
             // 
             // btnInThongKe
             // 
@@ -110,8 +89,9 @@
             this.btnInThongKe.Name = "btnInThongKe";
             this.btnInThongKe.Size = new System.Drawing.Size(124, 31);
             this.btnInThongKe.TabIndex = 23;
-            this.btnInThongKe.Text = "In thống kê";
+            this.btnInThongKe.Text = "Xuất File Excel";
             this.btnInThongKe.UseVisualStyleBackColor = false;
+            this.btnInThongKe.Click += new System.EventHandler(this.btnInThongKe_Click);
             // 
             // btnThoat
             // 
@@ -143,6 +123,7 @@
             this.Name = "frmThongKeMatHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thống Kê Mặt Hàng";
+            this.Load += new System.EventHandler(this.frmThongKeMatHang_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMatHang)).EndInit();
             this.ResumeLayout(false);
@@ -155,10 +136,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvMatHang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaMH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenMH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DaXuatKho;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TonKho;
         private System.Windows.Forms.Button btnInThongKe;
         private System.Windows.Forms.Button btnThoat;
     }

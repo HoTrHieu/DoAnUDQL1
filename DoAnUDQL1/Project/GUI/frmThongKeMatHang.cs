@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Project.BUS;
+using Project.DAO;
 
 namespace Project.GUI
 {
@@ -87,6 +88,37 @@ namespace Project.GUI
                 workbook = null;
                 excel = null;
             }
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            string MaMH = txtMaMH.Text;
+            MaMH = MaMH.TrimEnd();
+
+            if (MaMH != "")
+            {
+                MATHANG temp = MatHangBUS.Instance.GetByID(MaMH);
+                if (temp != null)
+                {
+                    MatHangBUS.Instance.GetByIDFD(MaMH, dgvMatHang);
+                }
+                else
+                {
+                    dgvMatHang.DataSource = null;
+                    MessageBox.Show("Không Tìm Thấy Mặt Hàng", "Thông Báo");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Phải Điền Mã Mặt Hàng", "Thông Báo");
+            }
+
+        }
+
+        private void btnHienThi_Click(object sender, EventArgs e)
+        {
+            dgvMatHang.DataSource = null;
+            MatHangBUS.Instance.GetAll(dgvMatHang);
         }
     }
 }

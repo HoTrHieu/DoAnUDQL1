@@ -38,10 +38,10 @@ namespace Project.DAO
         {
             MATHANG item;
 
-            using(QLDLDataContext db = new QLDLDataContext())
-            {
-                item = db.MATHANGs.Where(i => i.MaMatHang == id).FirstOrDefault();
-            }
+            QLDLDataContext db = new QLDLDataContext();
+            
+            item = db.MATHANGs.Where(i => i.MaMatHang == id).FirstOrDefault();
+            
 
             return item;
         }
@@ -113,6 +113,13 @@ namespace Project.DAO
                     throw e;
                 }
             }
+        }
+
+        //get by ID for datagridview
+        public void GetByIDFD(string id,DataGridView data)
+        {           
+            QLDLDataContext db = new QLDLDataContext();
+            data.DataSource = db.MATHANGs.Where(i => i.MaMatHang == id).ToList();            
         }
     }
 }

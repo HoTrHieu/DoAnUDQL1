@@ -54,5 +54,11 @@ namespace Project.BUS
         {
             MatHangDAO.Instance.Update(MaMH, mh);
         }
+
+        //
+        public void GetByIDFD(string id, DataGridView data)
+        {
+            MatHangDAO.Instance.GetByIDFD(id, data);
+        }
     }
 }

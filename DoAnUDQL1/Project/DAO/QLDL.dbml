@@ -125,4 +125,10 @@
       <Association Name="QUAN_DAILY" Member="DAILies" ThisKey="MaQuan" OtherKey="MaQuan" Type="DAILY" />
     </Type>
   </Table>
+  <Table Name="dbo.TAIKHOAN" Member="TAIKHOANs">
+    <Type Name="TAIKHOAN">
+      <Column Name="TenTaiKhoan" Type="System.String" DbType="Char(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MatKhau" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>

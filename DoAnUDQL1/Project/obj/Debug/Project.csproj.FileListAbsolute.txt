@@ -88,3 +88,23 @@ H:\DO AN NAM 3\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.csproj.GenerateReso
 H:\DO AN NAM 3\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.csproj.CoreCompileInputs.cache
 H:\DO AN NAM 3\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.exe
 H:\DO AN NAM 3\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.pdb
+C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmDangNhap.resources
+C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\1660197_1660171_1460169\DoAnUDQL1\DoAnUDQL1\Project\bin\Debug\Project.exe.config
+C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\1660197_1660171_1460169\DoAnUDQL1\DoAnUDQL1\Project\bin\Debug\Project.exe
+C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\1660197_1660171_1460169\DoAnUDQL1\DoAnUDQL1\Project\bin\Debug\Project.pdb
+C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\1660197_1660171_1460169\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.csprojResolveAssemblyReference.cache
+C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\1660197_1660171_1460169\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmDangNhap.resources
+C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\1660197_1660171_1460169\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.frmDanhSachDaiLy.resources
+C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\1660197_1660171_1460169\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmCapNhatThamSo.resources
+C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\1660197_1660171_1460169\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmGiaoDienChinh.resources
+C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\1660197_1660171_1460169\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmPhieuXuatHang.resources
+C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\1660197_1660171_1460169\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmTiepNhanDaiLy.resources
+C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\1660197_1660171_1460169\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.Properties.Resources.resources
+C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\1660197_1660171_1460169\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmPhieuThuTien.resources
+C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\1660197_1660171_1460169\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmThongKeMatHang.resources
+C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\1660197_1660171_1460169\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmThongTinBaoCaoCongNoDaiLy.resources
+C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\1660197_1660171_1460169\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmThongTinBaoCaoDoanhSo.resources
+C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\1660197_1660171_1460169\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.csproj.GenerateResource.Cache
+C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\1660197_1660171_1460169\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.csproj.CoreCompileInputs.cache
+C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\1660197_1660171_1460169\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.exe
+C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\1660197_1660171_1460169\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.pdb

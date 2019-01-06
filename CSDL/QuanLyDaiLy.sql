@@ -8,6 +8,12 @@ use QuanLyDaiLy
 go
 
 --tạo bảng
+CREATE TABLE TAIKHOAN
+(
+	TenTaiKhoan CHAR(20) NOT NULL PRIMARY KEY,
+	MatKhau CHAR(20)
+);
+go
 create table DAILY 
 (
 	MaDaiLy char(10)NOT NULL PRIMARY KEY,
@@ -183,6 +189,15 @@ GO
 
 
 -----------------------
+INSERT dbo.TAIKHOAN
+(
+    TenTaiKhoan,
+    MatKhau
+)
+VALUES
+(   'admin', -- TenTaiKhoan - char(20)
+    'admin'  -- MatKhau - char(20)
+    )
 --INSERT
 INSERT [dbo].[QUAN] ([MaQuan], [TenQuan]) VALUES (N'Q1        ', N'Quận 1')
 INSERT [dbo].[QUAN] ([MaQuan], [TenQuan]) VALUES (N'Q10       ', N'Quận 10')

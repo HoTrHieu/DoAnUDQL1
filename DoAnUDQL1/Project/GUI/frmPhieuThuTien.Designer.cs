@@ -51,6 +51,9 @@
             this.btnLuuPT = new System.Windows.Forms.Button();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtMaPhieuThu = new System.Windows.Forms.TextBox();
+            this.btnTim = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -61,7 +64,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(120, 10);
+            this.label1.Location = new System.Drawing.Point(164, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(191, 25);
@@ -138,10 +141,10 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(15, 49);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Location = new System.Drawing.Point(15, 92);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(544, 242);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
@@ -172,7 +175,7 @@
             // 
             this.cmbMaDL.FormattingEnabled = true;
             this.cmbMaDL.Location = new System.Drawing.Point(160, 31);
-            this.cmbMaDL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbMaDL.Margin = new System.Windows.Forms.Padding(4);
             this.cmbMaDL.Name = "cmbMaDL";
             this.cmbMaDL.Size = new System.Drawing.Size(180, 24);
             this.cmbMaDL.TabIndex = 4;
@@ -203,8 +206,8 @@
             this.btnThoat.BackColor = System.Drawing.Color.Azure;
             this.btnThoat.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThoat.Location = new System.Drawing.Point(418, 505);
-            this.btnThoat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThoat.Location = new System.Drawing.Point(410, 496);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(4);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(141, 38);
             this.btnThoat.TabIndex = 14;
@@ -218,8 +221,8 @@
             this.btnInPhieu.Enabled = false;
             this.btnInPhieu.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnInPhieu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInPhieu.Location = new System.Drawing.Point(222, 505);
-            this.btnInPhieu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnInPhieu.Location = new System.Drawing.Point(214, 496);
+            this.btnInPhieu.Margin = new System.Windows.Forms.Padding(4);
             this.btnInPhieu.Name = "btnInPhieu";
             this.btnInPhieu.Size = new System.Drawing.Size(141, 38);
             this.btnInPhieu.TabIndex = 14;
@@ -250,7 +253,7 @@
             // txtTien
             // 
             this.txtTien.Location = new System.Drawing.Point(198, 91);
-            this.txtTien.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTien.Margin = new System.Windows.Forms.Padding(4);
             this.txtTien.Name = "txtTien";
             this.txtTien.Size = new System.Drawing.Size(307, 22);
             this.txtTien.TabIndex = 5;
@@ -264,11 +267,11 @@
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(15, 324);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Location = new System.Drawing.Point(15, 342);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox2.Size = new System.Drawing.Size(544, 151);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(544, 137);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Nhập Thông Tin";
@@ -276,7 +279,7 @@
             // dTPK
             // 
             this.dTPK.Location = new System.Drawing.Point(207, 32);
-            this.dTPK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dTPK.Margin = new System.Windows.Forms.Padding(4);
             this.dTPK.Name = "dTPK";
             this.dTPK.Size = new System.Drawing.Size(298, 22);
             this.dTPK.TabIndex = 6;
@@ -286,8 +289,8 @@
             this.btnLuuPT.BackColor = System.Drawing.Color.Azure;
             this.btnLuuPT.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnLuuPT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLuuPT.Location = new System.Drawing.Point(34, 505);
-            this.btnLuuPT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLuuPT.Location = new System.Drawing.Point(26, 496);
+            this.btnLuuPT.Margin = new System.Windows.Forms.Padding(4);
             this.btnLuuPT.Name = "btnLuuPT";
             this.btnLuuPT.Size = new System.Drawing.Size(141, 38);
             this.btnLuuPT.TabIndex = 15;
@@ -310,12 +313,41 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(299, 57);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(102, 16);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Mã Phiếu Thu";
+            // 
+            // txtMaPhieuThu
+            // 
+            this.txtMaPhieuThu.Location = new System.Drawing.Point(407, 54);
+            this.txtMaPhieuThu.Name = "txtMaPhieuThu";
+            this.txtMaPhieuThu.Size = new System.Drawing.Size(100, 22);
+            this.txtMaPhieuThu.TabIndex = 17;
+            // 
+            // btnTim
+            // 
+            this.btnTim.Location = new System.Drawing.Point(513, 53);
+            this.btnTim.Name = "btnTim";
+            this.btnTim.Size = new System.Drawing.Size(46, 23);
+            this.btnTim.TabIndex = 18;
+            this.btnTim.Text = "Tìm";
+            this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
+            // 
             // frmPhieuThuTien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.ClientSize = new System.Drawing.Size(580, 565);
+            this.ClientSize = new System.Drawing.Size(580, 544);
+            this.Controls.Add(this.btnTim);
+            this.Controls.Add(this.txtMaPhieuThu);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnLuuPT);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnInPhieu);
@@ -325,7 +357,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmPhieuThuTien";
@@ -365,5 +397,8 @@
         private System.Windows.Forms.Button btnLuuPT;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtMaPhieuThu;
+        private System.Windows.Forms.Button btnTim;
     }
 }

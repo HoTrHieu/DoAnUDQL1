@@ -99,5 +99,52 @@ namespace Project.GUI
 
         }
 
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+
+            string MaPT = txtMaPhieuThu.Text;
+            MaPT = MaPT.TrimEnd();
+            if (MaPT != "")
+            {
+                PHIEUTHUTIEN temp = PhieuThuTienBUS.Instance.GetByID(MaPT);
+                if (temp != null)
+                {
+                    //gán thông tin phiếu thu
+                    txtTien.Text = temp.SoTienThu.ToString();
+                    dTPK.Value = temp.NgayThuTien.Value;
+                    cmbMaDL.Text = temp.MaDaiLy;
+                    //gán thông tin đại lý
+                    DAILY dl = DaiLyBUS.Instance.GetByID(temp.MaDaiLy);
+                    lbTenDaiLy.Text = dl.TenDaiLy;
+                    lblMail.Text = dl.MaDaiLy;
+                    lbSoDienThoai.Text = dl.DienThoai;
+                    lblDiaChi.Text = dl.DiaChi;
+
+                    btnLuuPT.Enabled = false;
+                    btnInPhieu.Enabled = true;
+                }
+                else
+                {
+                    //gán thông tin phiếu thu
+                    txtTien.Text = "";
+                    dTPK.Value = DateTime.Today;
+                    cmbMaDL.Text = "";
+                    //gán thông tin đại lý
+
+                    lbTenDaiLy.Text = "";
+                    lblMail.Text = "";
+                    lbSoDienThoai.Text = "";
+                    lblDiaChi.Text = "";
+                    MessageBox.Show("Không Tìm Thấy Phiếu Thu", "Thông Báo");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Phải Điền Ma Phiếu Thu", "Thông Báo");
+            }
+            
+
+
+        }
     }
 }

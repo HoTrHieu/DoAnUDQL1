@@ -26,10 +26,10 @@ namespace Project.DAO
         public PHIEUTHUTIEN GetByID(string MaDL)
         {
             PHIEUTHUTIEN temp;
-            using (QLDLDataContext db = new QLDLDataContext())
-            {
+            QLDLDataContext db = new QLDLDataContext();
+            
                 temp = db.PHIEUTHUTIENs.Where(p => p.MaPhieuThu == MaDL).FirstOrDefault();
-            }
+            
             return temp;
         }
 

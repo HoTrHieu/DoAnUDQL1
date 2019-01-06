@@ -75,5 +75,11 @@ namespace Project.BUS
         {
             return DaiLyDAO.Instance.Delete(maDL);
         }
+
+        //get allDaily
+        public List<DAILY> GetAll()
+        {
+            return DaiLyDAO.Instance.GetAll();
+        }
     }
 }

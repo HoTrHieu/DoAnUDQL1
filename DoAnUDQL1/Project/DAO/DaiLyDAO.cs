@@ -171,5 +171,18 @@ namespace Project.DAO
             }
             
         }
+
+
+        //get alldaily
+        public List<DAILY> GetAll()
+        {
+            List<DAILY> lstDL = new List<DAILY>();
+            using(QLDLDataContext db=new QLDLDataContext())
+            {
+                lstDL = db.DAILies.Select(p => p).ToList();
+            }
+
+            return lstDL;
+        }
     }
 }

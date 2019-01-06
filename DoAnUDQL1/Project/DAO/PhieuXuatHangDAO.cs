@@ -39,13 +39,20 @@ namespace Project.DAO
             string MaPX;
             using (QLDLDataContext db = new QLDLDataContext())
             {
-                List<string> lstMa = db.PHIEUXUATHANGs.Select(p => p.MaPhieuXuat).ToList();
+                List<string> lstMa = db.PHIEUXUATHANGs.Select(p => p.MaPhieuXuat.Trim()).ToList();
                 MaPX = lstMa[0];
                 foreach (string temp in lstMa)
                 {
-                    if (temp.Length > MaPX.Length || string.Compare(temp, MaPX) == 1)
+                    if (temp.Length > MaPX.Length)
                     {
                         MaPX = temp;
+                    }
+                    else if (temp.Length == MaPX.Length)
+                    {
+                        if (String.Compare(temp.Substring(2, temp.Length - 2), MaPX.Substring(2, MaPX.Length - 2)) > 0)
+                        {
+                            MaPX = temp;
+                        }
                     }
                 }
                 MaPX = MaPX.TrimEnd();

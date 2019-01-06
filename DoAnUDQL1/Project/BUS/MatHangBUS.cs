@@ -60,5 +60,19 @@ namespace Project.BUS
         {
             MatHangDAO.Instance.GetByIDFD(id, data);
         }
+
+        public void GetAllID(DataGridView dgv)
+        {
+            MatHangDAO.Instance.GetAllID(dgv);
+        }
+        public List<MATHANG> GetAll()
+        {
+            return MatHangDAO.Instance.GetAll();
+        }
+
+        public void GetByID(string MaMH, DataGridView data)
+        {
+            MatHangDAO.Instance.GetByID(MaMH, data);
+        }
     }
 }

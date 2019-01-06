@@ -121,5 +121,49 @@ namespace Project.DAO
             QLDLDataContext db = new QLDLDataContext();
             data.DataSource = db.MATHANGs.Where(i => i.MaMatHang == id).ToList();            
         }
+
+        public void GetAllID(DataGridView dgv)
+        {
+            using (QLDLDataContext db = new QLDLDataContext())
+            {
+                var query = (from mh in db.MATHANGs
+                            select new { maMH = mh.MaMatHang, tenMH = mh.TenMatHang }).ToList();
+
+                DataGridViewComboBoxColumn cmb = new DataGridViewComboBoxColumn();
+                //cmb.DataSource = query;
+
+                cmb.HeaderText = "Mã Mặt Hàng";
+                cmb.Name = "maMatHang";
+                int i = 0;
+                foreach (var item in query)
+                {
+                    cmb.Items.Add(item.maMH);
+                }
+
+                dgv.Columns.Insert(1, cmb);
+
+            }
+        }
+
+        public List<MATHANG> GetAll()
+        {
+            List<MATHANG> lstDL = new List<MATHANG>();
+            using (QLDLDataContext db = new QLDLDataContext())
+            {
+                lstDL = db.MATHANGs.Select(p => p).ToList();
+            }
+
+            return lstDL;
+        }
+
+        public void GetByID(string MaMH, DataGridView data)
+        {
+
+            QLDLDataContext db = new QLDLDataContext();
+
+            data.DataSource = db.MATHANGs.Where(p => p.MaMatHang == MaMH).ToList();
+
+
+        }
     }
 }

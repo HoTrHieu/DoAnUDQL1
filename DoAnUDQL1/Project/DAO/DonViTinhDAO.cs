@@ -23,23 +23,26 @@ namespace Project.DAO
             }
         }
 
-        public void GetAll(DataGridView dgv)
+        public List<DONVITINH> GetAll()
         {
+            List<DONVITINH> lstDL = new List<DONVITINH>();
             using (QLDLDataContext db = new QLDLDataContext())
             {
-                
+                lstDL = db.DONVITINHs.Select(p => p).ToList();
             }
 
+            return lstDL;
         }
-        //public DONVITINH GetByID(string MaDL)
-        //{
-        //    DONVITINH temp;
-        //    using (QLDLDataContext db = new QLDLDataContext())
-        //    {
-                
-        //    }
-        //    return temp;
-        //}
+
+        public void GetByID(int MaDVT, DataGridView data)
+        {
+
+            QLDLDataContext db = new QLDLDataContext();
+
+            data.DataSource = db.DONVITINHs.Where(p => p.MaDonViTinh == MaDVT).ToList();
+
+
+        }
 
     }
 }

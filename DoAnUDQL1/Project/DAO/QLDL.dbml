@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuanLyDaiLy" Class="QLDLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-KALP039;Initial Catalog=QuanLyDaiLy;Integrated Security=True" SettingsObjectName="Project.Properties.Settings" SettingsPropertyName="QuanLyDaiLyConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-KTD1ED7\SQLEXPRESS;Initial Catalog=QuanLyDaiLy;Integrated Security=True" SettingsObjectName="Project.Properties.Settings" SettingsPropertyName="QuanLyDaiLyConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.BAOCAOCONGNO" Member="BAOCAOCONGNOs">
     <Type Name="BAOCAOCONGNO">
       <Column Name="MaBaoCaoCongNo" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -29,8 +29,8 @@
       <Column Name="NoDau" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="PhatSinh" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="NoCuoi" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="BAOCAOCONGNO_CONGNO_DAILY" Member="BAOCAOCONGNO" ThisKey="MaBaoCaoCongNo" OtherKey="MaBaoCaoCongNo" Type="BAOCAOCONGNO" IsForeignKey="true" />
-      <Association Name="DAILY_CONGNO_DAILY" Member="DAILY" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="DAILY" IsForeignKey="true" />
+      <Association Name="BAOCAOCONGNO_CONGNO_DAILY" Member="BAOCAOCONGNO" ThisKey="MaBaoCaoCongNo" OtherKey="MaBaoCaoCongNo" Type="BAOCAOCONGNO" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="DAILY_CONGNO_DAILY" Member="DAILY" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="DAILY" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.DAILY" Member="DAILies">
@@ -48,8 +48,8 @@
       <Association Name="DAILY_DOANHSO_DAILY" Member="DOANHSO_DAILies" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="DOANHSO_DAILY" />
       <Association Name="DAILY_PHIEUTHUTIEN" Member="PHIEUTHUTIENs" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="PHIEUTHUTIEN" />
       <Association Name="DAILY_PHIEUXUATHANG" Member="PHIEUXUATHANGs" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="PHIEUXUATHANG" />
-      <Association Name="LOAIDAILY_DAILY" Member="LOAIDAILY" ThisKey="MaLoaiDaiLy" OtherKey="MaLoaiDaiLy" Type="LOAIDAILY" IsForeignKey="true" />
-      <Association Name="QUAN_DAILY" Member="QUAN" ThisKey="MaQuan" OtherKey="MaQuan" Type="QUAN" IsForeignKey="true" />
+      <Association Name="LOAIDAILY_DAILY" Member="LOAIDAILY" ThisKey="MaLoaiDaiLy" OtherKey="MaLoaiDaiLy" Type="LOAIDAILY" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="QUAN_DAILY" Member="QUAN" ThisKey="MaQuan" OtherKey="MaQuan" Type="QUAN" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.DOANHSO_DAILY" Member="DOANHSO_DAILies">
@@ -59,8 +59,8 @@
       <Column Name="SoPhieuXuat" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TongTriGia" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TyLe" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="DAILY_DOANHSO_DAILY" Member="DAILY" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="DAILY" IsForeignKey="true" />
-      <Association Name="BAOCAODOANHSO_DOANHSO_DAILY" Member="BAOCAODOANHSO" ThisKey="MaBaoCaoDoanhSo" OtherKey="MaBaoCaoDoanhSo" Type="BAOCAODOANHSO" IsForeignKey="true" />
+      <Association Name="DAILY_DOANHSO_DAILY" Member="DAILY" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="DAILY" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="BAOCAODOANHSO_DOANHSO_DAILY" Member="BAOCAODOANHSO" ThisKey="MaBaoCaoDoanhSo" OtherKey="MaBaoCaoDoanhSo" Type="BAOCAODOANHSO" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.DONVITINH" Member="DONVITINHs">
@@ -93,7 +93,7 @@
       <Column Name="NgayThuTien" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="SoTienThu" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MaDaiLy" Type="System.String" DbType="Char(10)" CanBeNull="true" />
-      <Association Name="DAILY_PHIEUTHUTIEN" Member="DAILY" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="DAILY" IsForeignKey="true" />
+      <Association Name="DAILY_PHIEUTHUTIEN" Member="DAILY" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="DAILY" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.PHIEUXUAT_MATHANG" Member="PHIEUXUAT_MATHANGs">
@@ -103,9 +103,9 @@
       <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ThanhTien" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MaDonViTinh" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="DONVITINH_PHIEUXUAT_MATHANG" Member="DONVITINH" ThisKey="MaDonViTinh" OtherKey="MaDonViTinh" Type="DONVITINH" IsForeignKey="true" />
-      <Association Name="MATHANG_PHIEUXUAT_MATHANG" Member="MATHANG" ThisKey="MaMatHang" OtherKey="MaMatHang" Type="MATHANG" IsForeignKey="true" />
-      <Association Name="PHIEUXUATHANG_PHIEUXUAT_MATHANG" Member="PHIEUXUATHANG" ThisKey="MaPhieuXuat" OtherKey="MaPhieuXuat" Type="PHIEUXUATHANG" IsForeignKey="true" />
+      <Association Name="DONVITINH_PHIEUXUAT_MATHANG" Member="DONVITINH" ThisKey="MaDonViTinh" OtherKey="MaDonViTinh" Type="DONVITINH" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="MATHANG_PHIEUXUAT_MATHANG" Member="MATHANG" ThisKey="MaMatHang" OtherKey="MaMatHang" Type="MATHANG" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="PHIEUXUATHANG_PHIEUXUAT_MATHANG" Member="PHIEUXUATHANG" ThisKey="MaPhieuXuat" OtherKey="MaPhieuXuat" Type="PHIEUXUATHANG" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.PHIEUXUATHANG" Member="PHIEUXUATHANGs">
@@ -115,7 +115,7 @@
       <Column Name="TongTien" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MaDaiLy" Type="System.String" DbType="Char(10)" CanBeNull="true" />
       <Association Name="PHIEUXUATHANG_PHIEUXUAT_MATHANG" Member="PHIEUXUAT_MATHANGs" ThisKey="MaPhieuXuat" OtherKey="MaPhieuXuat" Type="PHIEUXUAT_MATHANG" />
-      <Association Name="DAILY_PHIEUXUATHANG" Member="DAILY" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="DAILY" IsForeignKey="true" />
+      <Association Name="DAILY_PHIEUXUATHANG" Member="DAILY" ThisKey="MaDaiLy" OtherKey="MaDaiLy" Type="DAILY" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.QUAN" Member="QUANs">

@@ -70,3 +70,21 @@ C:\Users\Ho Trung Hieu\Desktop\doan\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Projec
 C:\Users\Ho Trung Hieu\Desktop\doan\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.exe
 C:\Users\Ho Trung Hieu\Desktop\doan\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.pdb
 C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.csprojResolveAssemblyReference.cache
+H:\DO AN NAM 3\DoAnUDQL1\DoAnUDQL1\Project\bin\Debug\Project.exe.config
+H:\DO AN NAM 3\DoAnUDQL1\DoAnUDQL1\Project\bin\Debug\Project.exe
+H:\DO AN NAM 3\DoAnUDQL1\DoAnUDQL1\Project\bin\Debug\Project.pdb
+H:\DO AN NAM 3\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.csprojAssemblyReference.cache
+H:\DO AN NAM 3\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.frmDanhSachDaiLy.resources
+H:\DO AN NAM 3\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmCapNhatThamSo.resources
+H:\DO AN NAM 3\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmGiaoDienChinh.resources
+H:\DO AN NAM 3\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmPhieuXuatHang.resources
+H:\DO AN NAM 3\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmTiepNhanDaiLy.resources
+H:\DO AN NAM 3\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.Properties.Resources.resources
+H:\DO AN NAM 3\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmPhieuThuTien.resources
+H:\DO AN NAM 3\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmThongKeMatHang.resources
+H:\DO AN NAM 3\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmThongTinBaoCaoCongNoDaiLy.resources
+H:\DO AN NAM 3\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmThongTinBaoCaoDoanhSo.resources
+H:\DO AN NAM 3\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.csproj.GenerateResource.cache
+H:\DO AN NAM 3\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.csproj.CoreCompileInputs.cache
+H:\DO AN NAM 3\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.exe
+H:\DO AN NAM 3\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.pdb

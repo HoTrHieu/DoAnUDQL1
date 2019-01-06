@@ -23,5 +23,15 @@ namespace Project.BUS
                 return instance;
             }
         }
+
+        public List<DONVITINH> GetAll()
+        {
+            return DonViTinhDAO.Instance.GetAll();
+        }
+
+        public void GetByID(int MaDVT, DataGridView data)
+        {
+            DonViTinhDAO.Instance.GetByID(MaDVT, data);
+        }
     }
 }

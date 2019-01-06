@@ -39,6 +39,10 @@ namespace Project.DAO
             using (QLDLDataContext db = new QLDLDataContext())
             {
                 List<string> lstMa = db.PHIEUTHUTIENs.Select(p => p.MaPhieuThu).ToList();
+                if (lstMa.Count == 0)
+                {
+                    return "PT1";
+                }
                 MaPT = lstMa[0];
                 foreach (string temp in lstMa)
                 {

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThongTinBaoCaoCongNoDaiLy));
             this.dgvCongNo = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,6 +48,14 @@
             this.dgvCongNo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCongNo.BackgroundColor = System.Drawing.Color.Teal;
             this.dgvCongNo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCongNo.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCongNo.Location = new System.Drawing.Point(6, 19);
             this.dgvCongNo.Name = "dgvCongNo";
             this.dgvCongNo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -137,7 +146,7 @@
             this.cmbMaBaoCao.FormattingEnabled = true;
             this.cmbMaBaoCao.Location = new System.Drawing.Point(446, 44);
             this.cmbMaBaoCao.Name = "cmbMaBaoCao";
-            this.cmbMaBaoCao.Size = new System.Drawing.Size(50, 21);
+            this.cmbMaBaoCao.Size = new System.Drawing.Size(81, 21);
             this.cmbMaBaoCao.TabIndex = 26;
             // 
             // frmThongTinBaoCaoCongNoDaiLy

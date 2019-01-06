@@ -81,5 +81,12 @@ namespace Project.BUS
         {
             return DaiLyDAO.Instance.GetAll();
         }
+
+
+        public void GetByID(string MaDL, DataGridView data)
+        {
+            DaiLyDAO.Instance.GetByID(MaDL, data);
+        }
+
     }
 }

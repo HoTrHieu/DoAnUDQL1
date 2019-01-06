@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Project.DAO
 {
@@ -92,6 +93,12 @@ namespace Project.DAO
                     return false;
                 }
             }
+        }
+
+        //get data for dgv
+        public void GetThongTinDGV(DataGridView data)
+        {
+
         }
     }
 }

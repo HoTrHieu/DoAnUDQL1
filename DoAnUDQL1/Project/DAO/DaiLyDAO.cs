@@ -27,10 +27,10 @@ namespace Project.DAO
         public DAILY GetByID(string MaDL)
         {
             DAILY temp;
-            using (QLDLDataContext db = new QLDLDataContext())
-            {
+            QLDLDataContext db = new QLDLDataContext();
+            
                 temp = db.DAILies.Where(p => p.MaDaiLy == MaDL).FirstOrDefault();
-            }
+            
             return temp;
         }
 
@@ -183,6 +183,17 @@ namespace Project.DAO
             }
 
             return lstDL;
+        }
+
+
+        public void GetByID(string MaDL,DataGridView data)
+        {
+            
+            QLDLDataContext db = new QLDLDataContext();
+
+            data.DataSource = db.DAILies.Where(p => p.MaDaiLy == MaDL).ToList();
+
+            
         }
     }
 }

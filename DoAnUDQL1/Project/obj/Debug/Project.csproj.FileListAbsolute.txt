@@ -8,7 +8,6 @@ C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\DoAnUDQL1\DoAnUDQL1\Proj
 C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.csproj.CoreCompileInputs.cache
 C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.exe
 C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.pdb
-C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.csprojResolveAssemblyReference.cache
 C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmThongTinBaoCaoCongNoDaiLy.resources
 C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmThongTinBaoCaoDoanhSo.resources
 C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.GUI.frmPhieuXuatHang.resources
@@ -70,3 +69,4 @@ C:\Users\Ho Trung Hieu\Desktop\doan\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Projec
 C:\Users\Ho Trung Hieu\Desktop\doan\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.csproj.CoreCompileInputs.cache
 C:\Users\Ho Trung Hieu\Desktop\doan\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.exe
 C:\Users\Ho Trung Hieu\Desktop\doan\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.pdb
+C:\Users\Ho Trung Hieu\Desktop\DEADLINE\DO_AN\DoAnUDQL1\DoAnUDQL1\DoAnUDQL1\Project\obj\Debug\Project.csprojResolveAssemblyReference.cache

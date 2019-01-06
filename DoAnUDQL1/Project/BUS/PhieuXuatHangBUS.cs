@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Project.DAO;
+using System.Windows.Forms;
 
 namespace Project.BUS
 {
@@ -54,6 +55,12 @@ namespace Project.BUS
         public bool Update(string maPX, PHIEUXUATHANG px)
         {
             return PhieuXuatHangDAO.Instance.Update(maPX, px);
+        }
+
+        //get datagirdview
+        public void GetThongTinDGV(DataGridView data)
+        {
+            PhieuXuatHangDAO.Instance.GetThongTinDGV(data);
         }
     }
 }

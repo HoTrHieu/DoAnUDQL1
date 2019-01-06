@@ -72,7 +72,7 @@ namespace Project.DAO
     #endregion
 		
 		public QLDLDataContext() : 
-				base(global::Project.Properties.Settings.Default.QuanLyDaiLyConnectionString1, mappingSource)
+				base(global::Project.Properties.Settings.Default.QuanLyDaiLyConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

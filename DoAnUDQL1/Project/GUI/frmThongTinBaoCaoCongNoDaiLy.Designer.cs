@@ -30,17 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThongTinBaoCaoCongNoDaiLy));
             this.dgvCongNo = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnInCongNo = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.cmbThang = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbMaBaoCao = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCongNo)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -50,42 +47,11 @@
             this.dgvCongNo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCongNo.BackgroundColor = System.Drawing.Color.Teal;
             this.dgvCongNo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCongNo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5});
             this.dgvCongNo.Location = new System.Drawing.Point(6, 19);
             this.dgvCongNo.Name = "dgvCongNo";
             this.dgvCongNo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCongNo.Size = new System.Drawing.Size(565, 221);
             this.dgvCongNo.TabIndex = 4;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "STT";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Đại Lý";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Số Phiếu Xuất";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Tổng Trị Giá";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Tỷ Lệ";
-            this.Column5.Name = "Column5";
             // 
             // label2
             // 
@@ -118,8 +84,9 @@
             this.btnInCongNo.Name = "btnInCongNo";
             this.btnInCongNo.Size = new System.Drawing.Size(124, 31);
             this.btnInCongNo.TabIndex = 21;
-            this.btnInCongNo.Text = "In báo cáo công nợ";
+            this.btnInCongNo.Text = "Xuất File Excel";
             this.btnInCongNo.UseVisualStyleBackColor = false;
+            this.btnInCongNo.Click += new System.EventHandler(this.btnInCongNo_Click);
             // 
             // btnThoat
             // 
@@ -141,6 +108,7 @@
             this.cmbThang.Name = "cmbThang";
             this.cmbThang.Size = new System.Drawing.Size(50, 21);
             this.cmbThang.TabIndex = 20;
+            this.cmbThang.SelectedValueChanged += new System.EventHandler(this.cmbThang_SelectedValueChanged);
             // 
             // groupBox1
             // 
@@ -154,12 +122,32 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thống Kê Tài Chính";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(355, 49);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(69, 13);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Mã Báo Cáo:";
+            // 
+            // cmbMaBaoCao
+            // 
+            this.cmbMaBaoCao.FormattingEnabled = true;
+            this.cmbMaBaoCao.Location = new System.Drawing.Point(446, 44);
+            this.cmbMaBaoCao.Name = "cmbMaBaoCao";
+            this.cmbMaBaoCao.Size = new System.Drawing.Size(50, 21);
+            this.cmbMaBaoCao.TabIndex = 26;
+            // 
             // frmThongTinBaoCaoCongNoDaiLy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkTurquoise;
             this.ClientSize = new System.Drawing.Size(601, 379);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.cmbMaBaoCao);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnInCongNo);
@@ -173,6 +161,7 @@
             this.Name = "frmThongTinBaoCaoCongNoDaiLy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Báo Cáo Công Nợ Đại Lý";
+            this.Load += new System.EventHandler(this.frmThongTinBaoCaoCongNoDaiLy_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCongNo)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -183,16 +172,13 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvCongNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnInCongNo;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.ComboBox cmbThang;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cmbMaBaoCao;
     }
 }

@@ -72,7 +72,7 @@ namespace Project.DAO
     #endregion
 		
 		public QLDLDataContext() : 
-				base(global::Project.Properties.Settings.Default.QuanLyDaiLyConnectionString1, mappingSource)
+				base(global::Project.Properties.Settings.Default.QuanLyDaiLyConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -719,7 +719,7 @@ namespace Project.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BAOCAOCONGNO_CONGNO_DAILY", Storage="_BAOCAOCONGNO", ThisKey="MaBaoCaoCongNo", OtherKey="MaBaoCaoCongNo", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BAOCAOCONGNO_CONGNO_DAILY", Storage="_BAOCAOCONGNO", ThisKey="MaBaoCaoCongNo", OtherKey="MaBaoCaoCongNo", IsForeignKey=true)]
 		public BAOCAOCONGNO BAOCAOCONGNO
 		{
 			get
@@ -753,7 +753,7 @@ namespace Project.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DAILY_CONGNO_DAILY", Storage="_DAILY", ThisKey="MaDaiLy", OtherKey="MaDaiLy", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DAILY_CONGNO_DAILY", Storage="_DAILY", ThisKey="MaDaiLy", OtherKey="MaDaiLy", IsForeignKey=true)]
 		public DAILY DAILY
 		{
 			get
@@ -1119,7 +1119,7 @@ namespace Project.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LOAIDAILY_DAILY", Storage="_LOAIDAILY", ThisKey="MaLoaiDaiLy", OtherKey="MaLoaiDaiLy", IsForeignKey=true, DeleteRule="CASCADE")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LOAIDAILY_DAILY", Storage="_LOAIDAILY", ThisKey="MaLoaiDaiLy", OtherKey="MaLoaiDaiLy", IsForeignKey=true)]
 		public LOAIDAILY LOAIDAILY
 		{
 			get
@@ -1153,7 +1153,7 @@ namespace Project.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QUAN_DAILY", Storage="_QUAN", ThisKey="MaQuan", OtherKey="MaQuan", IsForeignKey=true, DeleteRule="CASCADE")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QUAN_DAILY", Storage="_QUAN", ThisKey="MaQuan", OtherKey="MaQuan", IsForeignKey=true)]
 		public QUAN QUAN
 		{
 			get
@@ -1407,7 +1407,7 @@ namespace Project.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DAILY_DOANHSO_DAILY", Storage="_DAILY", ThisKey="MaDaiLy", OtherKey="MaDaiLy", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DAILY_DOANHSO_DAILY", Storage="_DAILY", ThisKey="MaDaiLy", OtherKey="MaDaiLy", IsForeignKey=true)]
 		public DAILY DAILY
 		{
 			get
@@ -1441,7 +1441,7 @@ namespace Project.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BAOCAODOANHSO_DOANHSO_DAILY", Storage="_BAOCAODOANHSO", ThisKey="MaBaoCaoDoanhSo", OtherKey="MaBaoCaoDoanhSo", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BAOCAODOANHSO_DOANHSO_DAILY", Storage="_BAOCAODOANHSO", ThisKey="MaBaoCaoDoanhSo", OtherKey="MaBaoCaoDoanhSo", IsForeignKey=true)]
 		public BAOCAODOANHSO BAOCAODOANHSO
 		{
 			get
@@ -2030,7 +2030,7 @@ namespace Project.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DAILY_PHIEUTHUTIEN", Storage="_DAILY", ThisKey="MaDaiLy", OtherKey="MaDaiLy", IsForeignKey=true, DeleteRule="CASCADE")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DAILY_PHIEUTHUTIEN", Storage="_DAILY", ThisKey="MaDaiLy", OtherKey="MaDaiLy", IsForeignKey=true)]
 		public DAILY DAILY
 		{
 			get
@@ -2243,7 +2243,7 @@ namespace Project.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DONVITINH_PHIEUXUAT_MATHANG", Storage="_DONVITINH", ThisKey="MaDonViTinh", OtherKey="MaDonViTinh", IsForeignKey=true, DeleteRule="CASCADE")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DONVITINH_PHIEUXUAT_MATHANG", Storage="_DONVITINH", ThisKey="MaDonViTinh", OtherKey="MaDonViTinh", IsForeignKey=true)]
 		public DONVITINH DONVITINH
 		{
 			get
@@ -2277,7 +2277,7 @@ namespace Project.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MATHANG_PHIEUXUAT_MATHANG", Storage="_MATHANG", ThisKey="MaMatHang", OtherKey="MaMatHang", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="MATHANG_PHIEUXUAT_MATHANG", Storage="_MATHANG", ThisKey="MaMatHang", OtherKey="MaMatHang", IsForeignKey=true)]
 		public MATHANG MATHANG
 		{
 			get
@@ -2311,7 +2311,7 @@ namespace Project.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PHIEUXUATHANG_PHIEUXUAT_MATHANG", Storage="_PHIEUXUATHANG", ThisKey="MaPhieuXuat", OtherKey="MaPhieuXuat", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PHIEUXUATHANG_PHIEUXUAT_MATHANG", Storage="_PHIEUXUATHANG", ThisKey="MaPhieuXuat", OtherKey="MaPhieuXuat", IsForeignKey=true)]
 		public PHIEUXUATHANG PHIEUXUATHANG
 		{
 			get
@@ -2502,7 +2502,7 @@ namespace Project.DAO
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DAILY_PHIEUXUATHANG", Storage="_DAILY", ThisKey="MaDaiLy", OtherKey="MaDaiLy", IsForeignKey=true, DeleteRule="CASCADE")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DAILY_PHIEUXUATHANG", Storage="_DAILY", ThisKey="MaDaiLy", OtherKey="MaDaiLy", IsForeignKey=true)]
 		public DAILY DAILY
 		{
 			get

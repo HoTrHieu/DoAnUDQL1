@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Project.DAO;
+using System.Windows.Forms;
+
 
 namespace Project.BUS
 {
@@ -26,25 +28,31 @@ namespace Project.BUS
         // viết các hàm cần thiết
         public CONGNO_DAILY GetByID(string MaCN, string MaDL)
         {
-            return CongNo_DaiLyDAO.Instance.GetByID(MaCN,MaDL);
+            return CongNo_DaiLyDAO.Instance.GetByID(MaCN, MaDL);
         }
         //Updadte
-        public bool Update(string MaCN,string MaDL, CONGNO_DAILY cn)
+        public bool Update(string MaCN, string MaDL, CONGNO_DAILY cn)
         {
-            return CongNo_DaiLyDAO.Instance.Update(MaCN,MaDL, cn);
+            return CongNo_DaiLyDAO.Instance.Update(MaCN, MaDL, cn);
         }
         //Mã tự phát sinh       
         //insert
-        public bool Insert(string MaCN, string MaDL,int NoDau, int PSinh, int NoCuoi)
+        public bool Insert(string MaCN, string MaDL, int NoDau, int PSinh, int NoCuoi)
         {
             CONGNO_DAILY temp = new CONGNO_DAILY();
             temp.MaBaoCaoCongNo = MaCN;
-            temp.MaDaiLy = MaDL;          
+            temp.MaDaiLy = MaDL;
             temp.NoDau = NoDau;
             temp.PhatSinh = PSinh;
             temp.NoCuoi = NoCuoi;
-           
+
             return CongNo_DaiLyDAO.Instance.Insert(temp);
+        }
+
+        //getAllByMaCN
+        public void GetAllByMaCongNo(string MaCN, DataGridView data)
+        {
+            CongNo_DaiLyDAO.Instance.GetAllByMaCongNo(MaCN, data);
         }
     }
 }

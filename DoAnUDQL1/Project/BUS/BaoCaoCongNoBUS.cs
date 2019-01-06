@@ -26,10 +26,10 @@ namespace Project.BUS
         // viết các hàm cần thiết
         public BAOCAOCONGNO GetByID(string MaCN)
         {
-            return BaoCaoCongNoDAO.Instance.GetByID(MaCN);        
+            return BaoCaoCongNoDAO.Instance.GetByID(MaCN);
         }
         //Updadte
-        public bool Update(string MaCN,BAOCAOCONGNO cn)
+        public bool Update(string MaCN, BAOCAOCONGNO cn)
         {
             return BaoCaoCongNoDAO.Instance.Update(MaCN, cn);
         }
@@ -45,8 +45,14 @@ namespace Project.BUS
             BAOCAOCONGNO temp = new BAOCAOCONGNO();
             temp.MaBaoCaoCongNo = Ma;
             temp.Thang = Thang;
-            
+
             return BaoCaoCongNoDAO.Instance.Insert(temp);
+        }
+
+        //
+        public List<string> GetMaBaoCaoCongNoByThang(int Thang)
+        {
+            return BaoCaoCongNoDAO.Instance.GetMaBaoCaoCongNoByThang(Thang);
         }
     }
 }

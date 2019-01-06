@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Project.DAO
 {
@@ -28,21 +29,21 @@ namespace Project.DAO
             CONGNO_DAILY temp;
             using (QLDLDataContext db = new QLDLDataContext())
             {
-                temp = db.CONGNO_DAILies.Where(p => p.MaBaoCaoCongNo == MaCN && p.MaDaiLy==MaDL).FirstOrDefault();
+                temp = db.CONGNO_DAILies.Where(p => p.MaBaoCaoCongNo == MaCN && p.MaDaiLy == MaDL).FirstOrDefault();
             }
             return temp;
         }
         //update
-        public bool Update(string MaCN,string MaDL, CONGNO_DAILY cn)
+        public bool Update(string MaCN, string MaDL, CONGNO_DAILY cn)
         {
             using (QLDLDataContext db = new QLDLDataContext())
             {
                 CONGNO_DAILY temp = db.CONGNO_DAILies.Where(p => p.MaBaoCaoCongNo == MaCN && p.MaDaiLy == MaDL).FirstOrDefault();
-                
+
                 temp.NoDau = cn.NoDau;
                 temp.PhatSinh = cn.PhatSinh;
                 temp.NoCuoi = cn.NoCuoi;
-                
+
                 try
                 {
                     db.SubmitChanges();
@@ -55,7 +56,7 @@ namespace Project.DAO
             }
         }
         //không cần Create Code
-        
+
         //insert
         public bool Insert(CONGNO_DAILY cn)
         {
@@ -72,6 +73,23 @@ namespace Project.DAO
                     return false;
                 }
             }
+        }
+
+        //getAllByMaCN
+        public void GetAllByMaCongNo(string MaCN, DataGridView data)
+        {
+            QLDLDataContext db = new QLDLDataContext();
+            db.DeferredLoadingEnabled = false;
+            data.DataSource = from u in db.CONGNO_DAILies
+                              where u.MaBaoCaoCongNo == MaCN
+                              select new
+                              {
+                                  MaDL = u.MaDaiLy,
+                                  NoD = u.NoDau,
+                                  PhatS = u.PhatSinh,
+                                  NoC = u.NoCuoi
+                              };
+            //temp = db.CONGNO_DAILies.Where(p => p.MaBaoCaoCongNo == MaCN).ToList();         
         }
     }
 }

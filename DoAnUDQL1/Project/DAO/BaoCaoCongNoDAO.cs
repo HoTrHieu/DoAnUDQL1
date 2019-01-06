@@ -26,20 +26,20 @@ namespace Project.DAO
         public BAOCAOCONGNO GetByID(string MaCN)
         {
             BAOCAOCONGNO temp;
-            using(QLDLDataContext db =new QLDLDataContext())
+            using (QLDLDataContext db = new QLDLDataContext())
             {
                 temp = db.BAOCAOCONGNOs.Where(p => p.MaBaoCaoCongNo == MaCN).FirstOrDefault();
             }
             return temp;
         }
         //update
-        public bool Update(string MaCN,BAOCAOCONGNO cn)
+        public bool Update(string MaCN, BAOCAOCONGNO cn)
         {
-            using(QLDLDataContext db=new QLDLDataContext())
+            using (QLDLDataContext db = new QLDLDataContext())
             {
                 BAOCAOCONGNO temp = db.BAOCAOCONGNOs.Where(p => p.MaBaoCaoCongNo == MaCN).FirstOrDefault();
                 temp.Thang = cn.Thang;
-                
+
                 try
                 {
                     db.SubmitChanges();
@@ -58,13 +58,13 @@ namespace Project.DAO
             //    ">= all(select len(x.MaDangKy) from THONGTINDANGKY x)"
 
             string Ma;
-            using(QLDLDataContext db=new QLDLDataContext())
+            using (QLDLDataContext db = new QLDLDataContext())
             {
                 List<string> lstMa = db.BAOCAOCONGNOs.Select(p => p.MaBaoCaoCongNo).ToList();
                 Ma = lstMa[0];
-                foreach(string temp in lstMa)
+                foreach (string temp in lstMa)
                 {
-                    if(temp.Length>Ma.Length || string.Compare(temp,Ma)==1)
+                    if (temp.Length > Ma.Length || string.Compare(temp, Ma) == 1)
                     {
                         Ma = temp;
                     }
@@ -80,7 +80,7 @@ namespace Project.DAO
         //insert
         public bool Insert(BAOCAOCONGNO cn)
         {
-            using(QLDLDataContext db=new QLDLDataContext())
+            using (QLDLDataContext db = new QLDLDataContext())
             {
                 try
                 {
@@ -91,9 +91,24 @@ namespace Project.DAO
                 catch
                 {
                     return false;
-                }                
+                }
             }
         }
-        
+
+        //baocaocongno by tháng
+        public List<string> GetMaBaoCaoCongNoByThang(int Thang)
+        {
+            List<BAOCAOCONGNO> temp = new List<BAOCAOCONGNO>();
+            QLDLDataContext db = new QLDLDataContext();
+
+            //db.DeferredLoadingEnabled = false;
+            List<string> a = new List<string>();
+            a = db.BAOCAOCONGNOs.Where(p => p.Thang == Thang).Select(p => p.MaBaoCaoCongNo).ToList();
+
+            temp = db.BAOCAOCONGNOs.Where(p => p.Thang == Thang).ToList();
+
+            return a;
+
+        }
     }
 }
